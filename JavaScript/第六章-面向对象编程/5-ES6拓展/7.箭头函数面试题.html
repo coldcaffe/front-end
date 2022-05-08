@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数面试题</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		var age = 100; //window作用域下的age对象
+
+		var obj = {
+			age: 20,
+			say: () => {
+				alert(this.age) //箭头函数不绑定this,因此这里的this指的是window对象
+			}
+		}
+
+		obj.say();
+	</script>
+</body>
+</html>

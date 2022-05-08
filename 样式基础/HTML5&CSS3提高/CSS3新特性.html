@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* input[value] {
+            color: pink;
+        } */
+
+        input[type=text] {
+            color: pink;
+        }
+
+        div[class^=icon] {
+            color: blue;
+        }
+
+        section[class$=data]{
+            color: skyblue;
+        }
+
+
+        /* ul :first-child {
+            background-color: blue;
+        }
+        ul :last-child {
+            background-color: red;
+        }
+        ul li:nth-child(2){
+            background-color: skyblue;
+        } */
+
+        /* 实现隔行换色 */
+        ul li:nth-child(even){
+            background-color: yellow;
+        }
+
+        ul li:nth-child(odd){
+            background-color: green;
+        }
+
+        /* 从0开始,每次加1往后计算,这里必须是n,不能是其他字母 */
+        ol li:nth-child(2n){
+            background-color: pink;
+        }
+        ol li:nth-child(2n+1){
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<!-- 
+    css3新增选择器:
+        注意:
+            类选择器,属性选择器,伪类选择器,权重为10
+
+        1.属性选择器
+            可根据元素特定属性来选择元素,不用借助于类或者id选择器
+            E[att]          选择具有att属性的E元素
+            E[att="val"]    选择具有att属性且属性值等于val开头的E元素(重点,务必掌握)
+            E[att^="val"]   匹配具有att属性且值以val开头的E元素
+            E[att$="val"]   匹配具有att属性且值以val结尾的E元素
+            E[att*="val"]   匹配具有att属性且值含有val的E元素
+
+        2.结构伪类选择器
+            主要根据文档结构来选择元素,常用于根据父级选择器里面的子元素
+            E:first-child       匹配父元素中的第一个子元素E
+            E:last-child        匹配父元素中的最后一个子元素E
+            E:nth-child(n)      匹配父元素中的第n个子元素E
+                n可以是数字/关键字/公式
+                    数字表示选择第n个子元素
+                    关键字even(偶数)/odd(奇数)
+                    常见公式(如果n是公式,则从0开始计算,但第0个元素或者超出了元素的个数会被忽略)
+            E:first-of-type     指定类型E的第一个
+            E:last-of-type      指定类型E的最后一个
+            E:nth-of-type(n)    指定类型E的第n个
+
+            区别:
+                1.nth-child对父元素中所有孩子排序选择(序号固定),先找到第n个孩子,再看是否和E匹配
+                    先从0开始排序,再匹配,无序列表中使用较多
+                2.nth-of-type对父元素里面指定子元素进行排序选择,先去匹配E,然后再根据E找第n个孩子
+                    先匹配,再排序
+
+        3.伪元素选择器
+            可以帮助利用css创建新标签元素,而不需要html标签,从而简化html结构
+            ::before    在元素内部的前面插入内容
+            ::after     在元素内部的后面插入内容
+
+            伪元素清除浮动
+                除额外标签法和父级添加overflow属性两种方法外,还可通过如下两种方法实现清除浮动:
+                1.父级添加after伪元素
+                2.父级添加双伪元素
+            
+
+ -->
+
+<body>
+    <!-- 1.利用属性选择器可以不用借助于类或id选择器 -->
+    <!-- <input type="text" value="请输入用户名">
+    <input type="text"> -->
+
+    <!-- 2.属性选择器可以选择属性=值的某些元素 -->
+     <input type="text" name="" id="">
+     <input type="password" name="" id="">
+
+    <!-- 3.选择属性值开头的某些元素 -->
+    <div class="icon1">小图标1</div>
+    <div class="icon2">小图标2</div>
+    <div class="icon3">小图标3</div>
+    <div class="icon4">小图标4</div>
+    <div>我是打酱油的</div>
+
+    <!-- 4.选择属性值结尾的某些元素 -->
+    <section class="icon1-data">我是安其拉</section>
+    <section class="icon2-data">我是哥斯拉</section>
+    <section class="icon3-ico">我是谁</section>
+
+
+    <!-- 结构伪类选择器 -->
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ul>
+
+    <ol>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ol>
+</body>
+</html>

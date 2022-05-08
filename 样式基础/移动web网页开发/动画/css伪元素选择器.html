@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        
+        /* 伪类选择器一个':',伪元素选择器是'::',要做好区分 */
+        div::before {
+            content: '我';
+            /* 伪元素创建的是行元素,因此要给其设置大小需先转为块元素 */
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        div::after {
+            content: '小猪佩奇';
+            /* 行内块,可以把文字和块展示在一行上 */
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <div>是</div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+     
+    
+    </style>
+</head>
+<body>
+    <!-- touch触摸事件 -->
+    <!-- <div></div> -->
+
+    <!-- 移动端拖动元素 -->
+    <!-- <div></div> -->
+
+    <!-- classList属性 -->
+    <!-- <div class="one"></div> -->
+
+    <!-- 本地存储之sessionStorage -->
+    <input type="text">
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除数据</button>
+    <button class="del">清空所有数据</button>
+
+    <!-- 记住用户名案例 -->
+    <input type="text" id="username"><input type="checkbox" id="remember">记住用户名
+
+    <script>
+        // touch触摸事件
+        function action1(){
+            var div = document.querySelector('div');   
+        //1.手指触摸DOM元素事件     
+        div.addEventListener('touchstart',function(e){
+            console.log('我摸了你');
+            // targetTouches 正在触摸当前DOM元素的手指列表
+            console.log(e);
+            console.log(e.targetTouches[0]);
+        });
+        // 2.手指在DOM元素上移动事件
+        div.addEventListener('touchmove',function(){
+            console.log('我继续摸');
+        });
+        // 3.手指离开DOM事件
+        div.addEventListener('touchend',function(){
+            console.log('轻轻的我走了');
+        });
+        }
+        //action1();
+    
+    
+        //移动端拖动元素
+        function action2(){
+            // （1） 触摸元素 touchstart：  获取手指初始坐标，同时获得盒子原来的位置
+            // （2） 移动手指 touchmove：  计算手指的滑动距离，并且移动盒子
+            // （3） 离开手指 touchend:
+            var div = document.querySelector('div');
+            var startX = 0; //获取手指初始坐标
+            var startY = 0;
+            var x = 0; //获得盒子原来的位置
+            var y = 0;
+            div.addEventListener('touchstart', function(e) {
+                //  获取手指初始坐标
+                startX = e.targetTouches[0].pageX;
+                startY = e.targetTouches[0].pageY;
+                x = this.offsetLeft;
+                y = this.offsetTop;
+            });
+
+            div.addEventListener('touchmove', function(e) {
+                //  计算手指的移动距离： 手指移动之后的坐标减去手指初始的坐标
+                var moveX = e.targetTouches[0].pageX - startX;
+                var moveY = e.targetTouches[0].pageY - startY;
+                // 移动我们的盒子 盒子原来的位置 + 手指移动的距离
+                this.style.left = x + moveX + 'px';
+                this.style.top = y + moveY + 'px';
+                e.preventDefault(); // 阻止屏幕滚动的默认行为
+            });
+        }
+        // action2();
+
+
+        // classList属性
+        function action3(){
+            var div = document.querySelector('div');
+            // 打印元素类名列表
+            console.log(div.classList[0]);
+            // 添加类名 采用追加方式不会像className一样覆盖,需注意前面不要加'.'
+            div.classList.add('two');
+            console.log(div.classList);
+            // 删除类名
+            div.classList.remove('one');
+            console.log(div.classList);
+            // 切换类
+            div.classList.toggle('three');
+            console.log(div.classList);
+            div.classList.toggle('three');
+            console.log(div.classList);
+        }
+        // action3();
+
+
+        // 本地存储之sessionStorage
+        var ipt = document.querySelector('input');
+        var set = document.querySelector('.set');
+        var get = document.querySelector('.get');
+        var remove = document.querySelector('.remove');
+        var del = document.querySelector('.del');
+        set.addEventListener('click',function(){
+            // 点击后可将保单中值保存起来
+            var val = ipt.value;
+            sessionStorage.setItem('uname',val);
+        })
+        get.addEventListener('click',function(){
+            // 点击后获取缓存的表单值(刷新页面仍)
+            console.log(sessionStorage.getItem('uname'));
+        })
+        remove.addEventListener('click',function(){
+            // 点击后删除缓存表单值
+            sessionStorage.removeItem('uname');
+            console.log(sessionStorage.getItem('uname'));
+        })
+        del.addEventListener('click',function(){
+            // 点击后删除所有缓存的表单值
+            sessionStorage.clear();
+            console.log(sessionStorage.getItem('uname'));
+        })
+        // 本地存储之localStorage(与sessionStorage同样使用,换个api即可)
+        // 两者区别主要在于生命周期,sessionStorage与页面同周期,localStorage需要手动删除
+
+
+        // 记住用户名案例
+        var username = document.querySelector('#username');
+        var remember = document.querySelector('#remember');
+        if(localStorage.getItem('username')){
+            // 本地缓存有时直接取值插入文本框
+            username.value = localStorage.getItem('username');
+            remember.checked = true;
+        }
+        remember.addEventListener('change',function(){
+            if(this.checked){
+                localStorage.setItem('username',username.value);
+            }else{
+                localStorage.removeItem('username');
+            }
+        });
+    
+    </script>
+</body>
+</html>

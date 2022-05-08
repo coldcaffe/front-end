@@ -1,0 +1,144 @@
+//在index中引入common样式文件
+//import可以将一个样式导入另一个样式中去
+@import "common";
+
+body {
+    min-width: 320px;
+    width: 15rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background: #f2f2f2;
+}
+
+//search-content
+//页面元素rem计算公式: 页面元素的px / html字体的大小 50
+@basefont: 50;
+.search-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    //实现固定定位下的居中效果
+    left: 50%;
+    transform: translate(-50%);
+    width: 15rem;
+    height: 88rem / @basefont;
+    background-color: #ffc001;
+    .classify {
+        width: 44rem / @basefont;
+        height: 70rem / @basefont;
+        margin: 11rem / @basefont 25rem / @basefont 7rem / @basefont 24rem / @basefont;
+        background: url(../images/classify.png) no-repeat ;
+        //背景缩放
+        background-size: 44rem / @basefont 70rem / @basefont;
+    }
+    .search {
+        flex: 1;
+        input {
+            width: 100%;
+            //去除自带的边框(黑灰色线条)
+            border: 0;
+            //去除蓝色外边框
+            outline: none;
+            height: 66rem / @basefont;
+            border-radius: 33rem /@basefont;
+            background-color: #fff2cc;
+            margin-top: 12rem / @basefont;
+            font-size: 25rem / @basefont;
+            padding-left: 55rem / @basefont;
+            color: #757575;
+        }
+    }
+    .login {
+        width: 75rem / @basefont;
+        height: 70rem / @basefont;
+        line-height: 70rem / @basefont;
+        margin: 10rem / @basefont;
+        font-size: 24rem /@basefont;
+        text-align: center;
+        color: #fff;
+    }
+}
+
+
+//banner
+.banner {
+    width: 750rem / @basefont;
+    height: 368rem / @basefont;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+//ad
+.ad {
+    display: flex;
+    a {
+        flex: 1;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+//nav
+nav {
+    width: 750rem / @basefont;
+    a {
+        float: left;
+        width: 150rem / @basefont;
+        height: 140rem / @basefont;
+        text-align: center;
+        img {
+            display: block;
+            width: 82rem / @basefont;
+            height: 82rem / @basefont;
+            margin: 10rem / @basefont auto 0;
+        }
+        span {
+            font-size: 25rem / @basefont;
+            color: #333;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

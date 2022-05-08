@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .blur1 {
+            /* 需带上单位,且数值越大越模糊 */
+            filter: blur(5px);
+        }
+
+        .father {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .son {
+            /* width: 150px; */
+            width: calc(100% - 30px);
+            height: 30px;
+            background-color: skyblue;
+        }
+
+        .transition1 {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            /* 多属性用,分割,或者直接用all替代 */
+            transition: width .5s ease .5s;
+        }
+
+        .transition1:hover {
+            width: 400px;
+        }
+
+    </style>
+</head>
+<!-- 
+    css3滤镜filter:
+        filter属性,将模糊或颜色偏移等图形效果应用于元素;
+            blur 数值越大,图片越模糊
+
+    
+    calc函数,使用+-x÷运算
+         
+
+    css3过渡: 
+        可以在不使用flash动画或JavaScript时,使元素从一种样式变换为另一种样式时为元素添加效果,可以使页面更好看,低版本ie9
+        以下不支持,但不会影响页面布局,经常和:hover一起搭配使用
+            transition: 要过渡的属性 花费时间 运动曲线 何时开始;
+
+
+
+ -->
+<body>
+    <!-- 图片模糊 -->
+    <img src="images/tb.jpg" alt="" class="blur1">
+
+    <!-- 使子盒子宽度永远比父盒子小30像素 -->
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <!-- 过渡 -->
+    <div class="transition1"></div>
+</body>
+</html>

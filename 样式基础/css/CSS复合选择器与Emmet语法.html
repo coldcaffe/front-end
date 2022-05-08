@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS复合选择器与Emmet语法</title>
+    <style>
+        /*
+        后代选择器: 
+        通过后代选择器选中标签,通过元素1 元素2格式最终选择元素2,
+        元素2可以是元素1的子元素,也可以是孙元素,只要是1的后代即可,
+        元素1/2可以为任意基础选择器*/
+        
+        ol li {
+            color: pink;
+        }
+        
+        ol li a {
+            color: red;
+        }
+        
+        ul a {
+            color: red;
+        }
+        
+        .nav a {
+            color: green;
+        }
+        /* 
+        子选择器(重要):
+            只能选择作为某元素的最近一级子元素,也就是亲儿子元素
+            格式: 元素1 > 元素2
+         */
+        
+        .nav1>a {
+            color: yellow;
+        }
+        /* 
+        并集选择器:
+            可以选择多组标签,同时为他们定义相同的样式,通常用于集体声明
+            格式: 各选择器通过英文逗号(,)连接,逗号可以理解为和的意思
+        
+         */
+        
+        div,
+        p,
+        span,
+        .pig li {
+            color: blue;
+        }
+        /* 
+        伪类选择器:
+            用于向某些选择器添加特殊的效果,比如给链接添加特殊效果,或选择第n个元素
+            格式: 用':'表示,如 :hover,:first-child
+                伪类选择器又很多,比如链接伪类,结构伪类等
+
+
+            链接伪类选择器:
+                a:link 选择所有未被访问链接
+                a:visited 选择所有已被访问链接
+                a:hover 选择鼠标指针位于其上链接
+                a:active 选择活动链接(鼠标按下但未弹起的链接)
+                注意:
+                    1.为确保生效,需按照LVHA的顺序编写: :link ,:visited, :hover, :active
+                    2.由于a标签在浏览器中有默认样式,因此实际工作中需给链接单独指定样式
+                    3.实际工作中常见一般给a统一指定样式,然后针对鼠标hover设定伪类选择器的方式设计,link,visited和active比较少用
+
+            :focus伪类选择器:
+                用于选取获得焦点的表单元素,一般用于表单元素的input标签
+                
+         */
+        
+        a:link {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        a:visited {
+            color: red;
+        }
+        
+        a:hover {
+            color: skyblue;
+        }
+        
+        a:active {
+            color: green;
+        }
+        
+        input:focus {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- emmet语法前身是Zen Coding,使用缩写来提高html/css的编写速度,vscode内部已集成
+        
+        快速生成html结构语法:
+            1.通过标签名+tab键方式生成标签
+            2.批量生成相同标签,使用"*": 例 div*3
+            3.父子级关系标签可以用">": ul > li
+            4.兄弟关系标签用"+": div + p
+            5.生成带类名或id名字的: (.demo 或 #two) + tab键
+            6.如生成div类名有顺序,可用自增符号"$": div{$}*5  .demo$*5
+            7.在生成标签内写内容用"{}"
+    -->
+
+
+    <!--  
+        快速生成css样式语法:
+            1.如w200 按tab,可生成width:200px;
+            2.lh26 按tab,可生成line-height:26px;
+
+     -->
+
+
+    <h6>代码格式化快捷键:</h6>
+    alt + shift + f
+
+
+    <h2>CSS的复合选择器</h2>
+    <!-- 
+        复合选择器基于基础选择器之上,对基本选择器进行组合形成的
+         1.可以更高效,准确的选择目标元素(标签)
+         2.由两个或多个基础选择器通过不同方式组合而成
+         3.常用复合选择器:后代选择器,子选择器,并集选择器,伪类选择器等 
+     -->
+
+    <h3>一.后代选择器</h3>
+    <!--
+            后代选择器又称包含选择器,可以选择父元素里子元素,
+            写法:外层标签卸载前面,内层标签写在后面,中间用空格分隔.当标签发生嵌套是,内岑标签就成为了外层标签的后代
+        -->
+    <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li><a href="#">我是ol的孙子</a></li>
+    </ol>
+
+    <ul>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="#">我是ul的孙子</a></li>
+    </ul>
+
+    <ul class="nav">
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="#">我是ul的孙子</a></li>
+        <li><a href="#">我是ul的孙子</a></li>
+        <li><a href="#">我是ul的孙子</a></li>
+    </ul>
+
+    <h3>二.子选择器</h3>
+    <div class="nav1">
+        <a href="#">我是亲儿子</a>
+        <p>
+            <a href="#">我是孙子</a>
+        </p>
+    </div>
+
+    <h3>三.并集选择器</h3>
+    <div>熊大</div>
+    <p>熊二</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li>猪1</li>
+        <li>猪2</li>
+        <li>猪3</li>
+    </ul>
+
+    <h3>四.伪类选择器</h3>
+    <h4>链接伪类选择器</h4>
+    <a href="#">小猪佩奇</a>
+
+    <h4>focus光标伪类选择器(点击后按样式变化)</h4>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+
+
+    <h1>复合选择器总结:</h1>
+    1.后代选择器:选择后代元素,较多使用 格式 '标签 子孙标签 {}' <br> 2.子代选择器:选择最近一级元素,较少使用 格式 '标签 > 子标签 {}' <br> 3.并集选择器:选择某些相同样式的元素,较多使用 格式 '标签1,标签2,... {}' <br> 4.链接伪类选择器:跟链接相关不同选择,较多使用, 重点记住a{}和a:hover在实际开发中的常见组合使用 <br> 5.:focus选择器:用于选择获得光标的表单,较少使用,记住input:focus的写法
+
+</body>
+
+</html>

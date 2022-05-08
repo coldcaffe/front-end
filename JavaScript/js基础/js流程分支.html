@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- js断点调试 -->
+    <!-- <script>
+        for (var i = 1; i <= 100; i++) {
+            console.log('你好吗?');
+        }
+    </script> -->
+    
+    <!-- 在一行中打印5个星星 -->
+    <!-- <script>
+        var str = '';
+        for (var i =0; i<5; i++) {
+            str += '☆';
+        }
+        console.log(str);
+    </script> -->
+
+    <!-- 双重for循环 -->
+    <!-- 打印n行m列星星 -->
+    <!-- <script>
+        var outter = prompt('输入行数:');
+        var inner = prompt('输入列数:');
+        for (var i =0; i < outter; i++) {
+            var str = '';
+            for (var j =0; j < inner; j++) {
+                str += '☆';
+            }
+            console.log(str);
+        }
+    </script> -->
+
+    <!-- 打印倒三角 -->
+    <!-- <script>
+        var outter = prompt('输入行数:');
+        var inner = prompt('输入列数:');
+        for (var i =0; i < outter; i++) {
+            var str = '';
+            for (var j = i; j  < inner; j++) {
+                str += '☆';
+            }
+            console.log(str);
+        }
+    </script> -->
+
+    <!-- 打印正三角形 -->
+    <!-- <script>
+        var outter = prompt('输入行数:');
+        var inner = prompt('输入列数:');
+        for (var i =0; i < outter; i++) {
+            var str = '';
+            for (var j = 0; j  <= i; j++) {
+                str += '☆';
+            }
+            console.log(str);
+        }
+    </script> -->
+
+    <!-- 九九乘法表 -->
+    <!-- <script>
+        for (var i = 1; i <=9; i++) {
+            var str = '';
+            for (var j = 1; j <= i; j++) {
+                str += i +'x'+j+'='+i*j+"\t";
+            }
+            console.log(str);
+        }
+    </script> -->
+
+    <!-- continue跳出当前轮次循环,进行后续循环操作 -->
+    <!-- <script>
+        for (var i  = 1; i <= 5; i++) {
+            if(i == 3) {
+                //只有第三个循环被跳过,后续的4,5仍被执行了
+                continue;
+            }
+            console.log('吃第'+i+'个包子');
+        }
+    </script> -->
+
+    <!-- break跳出所有后续循环操作 -->
+    <script>
+        for (var i  = 1; i <= 5; i++) {
+            if(i == 3) {
+                //第三个及以后的循环全部被跳出了
+                break;
+            }
+            console.log('吃第'+i+'个包子');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

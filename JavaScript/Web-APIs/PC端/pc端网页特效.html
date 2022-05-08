@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* offset系列属性 */
+        .father {
+            /* position: relative; */
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 150px;
+        }
+        
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin-left: 45px;
+        }
+        
+        .w {
+            height: 200px;
+            background-color: skyblue;
+            margin: 0 auto 200px;
+            padding: 10px;
+            border: 15px solid red;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 10px;
+        }
+
+        .box1 {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            margin: 200px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid red;
+            padding: 10px;
+        }
+
+        .scroll1 {
+            /* 显示滚动条 */
+            overflow: auto;
+        }
+
+        .div1 {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        .span1 {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+
+        .sliderbar {
+            position: fixed;
+            right: 0;
+            bottom: 100px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            color: #fff;
+        }
+        
+        .con {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 40px;
+            background-color: purple;
+            z-index: -1;
+        }
+
+    </style>
+
+    <!-- 引用animate动画函数js文件 -->
+    <script src="animate.js"></script>
+</head>
+<body>
+    <!-- offset系列属性 -->
+    <!-- <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="w"></div> -->
+
+
+    <!-- offset与style的区别 -->
+    <!-- <div class="box" style="width: 200px;"></div> -->
+
+    <!-- 03-计算鼠标在盒子内的坐标 -->
+    <!-- <div class="box1"></div> -->
+
+    <!-- client系列 -->
+    <!-- <div></div> -->
+
+    <!-- scroll系列 -->
+    <!-- <div class="scroll1">我是内容 我是内容 我是内容  我是内容 我是内容 我是内容 我是内容  我是内容 我是内容 我是内容 我是内容  我是内容 我是内容 我是内容 我是内容  我是内容 我是内容 我是内容 我是内容  我是内容 我是内容 我是内容 我是内容  我是内容 我是内容 我是内容 我是内容  我是内容 我是内容 我是内容 我是内容  我是内容 我是内容 </div> -->
+
+    <!-- 动画函数 -->
+    <button class="btn500">点击夏雨荷到500</button>
+    <button class="btn800">点击夏雨荷到800</button>
+    <button>点击夏雨荷才走</button>
+    <div class="div1"></div>
+    <span class="span1">夏雨荷</span>
+
+    <!-- 引用animate动画函数 -->
+    <div class="sliderbar">
+        <span>←</span>
+        <div class="con">问题反馈</div>
+    </div>
+
+
+    <script>
+        // // offset系列属性
+        // var father = document.querySelector('.father');
+        // var son = document.querySelector('.son');
+        // // 1.可以得到元素的偏移,位置,返回不带单位的数值
+        // console.log(father.offsetTop);
+        // console.log(father.offsetLeft);
+        // console.log('------------------------------');
+        // // 它以带有定位的父亲为准,如果没有父亲或者父亲没有定位,则以body为准
+        // console.log(son.offsetLeft);
+        // console.log('------------------------------');
+        // // 2.可以得到元素的大小 宽度和高度,包含padding+border+width
+        // var w = document.querySelector('.w');
+        // console.log(w.offsetWidth);
+        // console.log(w.offsetHeight);
+        // console.log('------------------------------');
+        // // 3.返回带有定位的父亲 否则返回的是body
+        // console.log(son.offsetParent); //返回有定位的父亲,否则返回body
+        // console.log(son.parentNode); //返回最近一级的父亲,不管父亲是否有定位
+
+
+        // // offset与style的区别
+        // var box = document.querySelector('.box');
+        // console.log(box.offsetWidth); //offset是width+border+padding的总值
+        // console.log(box.style.width); //不是行内样式就读不出来值,带单位
+        // // box.offsetWidth = '300px'; //offset系列是只读参数,没法修改
+        // box.style.width = '300px';
+        // console.log(box.offsetWidth);
+        
+
+        // 03-计算鼠标在盒子内的坐标
+        // 我们在盒子内点击， 想要得到鼠标距离盒子左右的距离。
+        // 首先得到鼠标在页面中的坐标（ e.pageX, e.pageY）
+        // 其次得到盒子在页面中的距离(box.offsetLeft, box.offsetTop)
+        // 用鼠标距离页面的坐标减去盒子在页面中的距离， 得到 鼠标在盒子内的坐标
+        // var box = document.querySelector('.box1');
+        // box.addEventListener('mousemove',function(e){
+        //     // console.log(e.pageX);
+        //     // console.log(e.pageY);
+        //     // console.log(box.offsetLeft);
+        //     var x = e.pageX - this.offsetLeft;
+        //     var y = e.pageY - this.offsetTop;
+        //     this.innerHTML = 'x坐标是 '+x +' y轴坐标是 '+y;
+        // })
+
+
+        // client系列
+        // client宽度和offsetwidth最大的区别就是不包含边框,但是包含padding
+        // var div = document.querySelector('div');
+        // console.log(div.clientWidth);
+
+        
+        // // 立即执行函数
+        // // 1.立即执行函数:不需要调用,立马能够自己执行的函数
+        // function fn (){
+        //     console.log(1);
+        // }
+        // fn();
+        // // 2.也可以传参数进来
+        // // (function(){})() 匿名函数调用方式 或者 (function(){}()) 匿名函数内部调用方式
+        // (function(a,b){
+        //     console.log(a+b);
+        // })(1,2);//第二个小括号可以看做是调用函数
+        // // 也可以把函数调用也放入匿名函数内
+        // (function(a,b){
+        //     console.log(a+b);
+        // }(2,3));
+        // // 3.主要作用是创建一个独立的作用域,里面所有的变量都是局部变量,不会与命名冲突的情况;
+
+        
+        //// scroll系列
+        //var div = document.querySelector('div');
+        //console.log(div.scrollHeight); //文本未超出边框时为220,超出后值变动了
+        //console.log(div.clientHeight);
+        //// scroll滚动事件,就是当滚动条发生变化时会触发的事件
+        //div.addEventListener('scroll',function(){
+        //    console.log(div.scrollTop);
+        //})
+
+
+        // 动画函数
+        function animate(obj,target,callback) {
+            // console.log(callback);  callback = function() {}  调用的时候 callback()
+            // 当我们不断的点击按钮，这个元素的速度会越来越快，因为开启了太多的定时器
+            // 解决方案就是 让我们元素只有一个定时器执行
+            // 先清除以前的定时器，只保留当前的一个定时器执行
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function(){
+                //步长值写到定时器的里面,步长值改为整数,不要出现小数问题(根据正负来判断向上还是向下取整)
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if(obj.offsetLeft >= target){
+                    //停止动画,本质是停止定时器
+                    clearInterval(obj.timer);
+                    //回调函数写到定时器结束里面
+                    if (callback) {
+                        callback();
+                    }
+                }
+                //把每次加1这个步长值,改为一个慢慢变小的值,即可实现缓动动画 
+                //步长公式: (目标值 - 现在位置) / 10
+                obj.style.left = obj.offsetLeft + step + 'px';
+                //匀速动画就是加上一个固定的值
+                //obj.style.left = obj.offsetLeft + 1 + 'px';
+            },15);
+        }
+
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        var btn = document.querySelector('button');
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+
+        //调用函数
+        animate(div,300);
+
+        //点击后调用函数
+        btn500.addEventListener('click', function(){
+            animate(span,500);
+        })
+        btn800.addEventListener('click', function(){
+            animate(span,800,function(){
+                span.style.backgroundColor = 'red';
+            });
+        })
+        // 匀速动画 就是 盒子是当前的位置 +  固定的值 10 
+        // 缓动动画就是  盒子当前的位置 + 变化的值(目标值 - 现在的位置) / 10）
+
+
+        //引用animate.js动画函数文件
+        var sliderbar = document.querySelector('.sliderbar');
+        var con = document.querySelector('.con');
+        
+         // 当我们鼠标经过 sliderbar 就会让 con这个盒子滑动到左侧
+        // 当我们鼠标离开 sliderbar 就会让 con这个盒子滑动到右侧
+        sliderbar.addEventListener('mouseenter', function() {
+            // animate(obj, target, callback);
+            animate(con, -160, function() {
+                // 当我们动画执行完毕，就把 ← 改为 →
+                sliderbar.children[0].innerHTML = '→';
+            });
+
+        })
+        sliderbar.addEventListener('mouseleave', function() {
+            // animate(obj, target, callback);
+            animate(con, 0, function() {
+                sliderbar.children[0].innerHTML = '←';
+            });
+
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>

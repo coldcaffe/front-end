@@ -1,0 +1,24 @@
+.header {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    // less中的嵌套,会在编译成css时重新拆分提取出来
+    a {
+        color: red;
+        //添加伪类
+        // 不补这个&会被解析为父选择器的后代(会有空格),有的话则被解析为父元素资深或父元素的伪类
+        &:hover {
+            color: blue;
+        }
+    }
+}
+
+.nav {
+    .logo {
+        color: green;
+    }
+    // 添加伪元素
+    &::before {
+        content: '';
+    }
+}

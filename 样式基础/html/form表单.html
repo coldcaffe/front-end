@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form表单</title>
+</head>
+
+<body>
+    <!-- form:表单标签 属性-> action:服务器url地址; method:数据提交方式get/post; name:名称(一个页面会有多个表单域) -->
+    <form action="demo.php" method="GET" name="UserSignIn">
+        <!-- form表单元素: input(输入) -->
+        <!-- input为单标签,拥有type属性,type下有以下值:
+            button(定义为可点击按钮),checkbox(定义复选框),radio(单选框),file(文件上传),hidden(隐藏输入字段),img(图像提交),password(密码 掩码字段), 
+            reset(重置按钮),submit(表单提交),text(单行文本,默认20个字符)
+
+            name属性:   input元素名称
+            value属性:  元素值
+            checked属性:默认选中
+            maxlength属性:输入字符最大长度
+        -->
+        用户名: <input type="text" name="username" value="gaoxx"><br/> 密码: <input type="password" name="password" value="xxxxxx"><br/>
+        <!-- 单选框 -->
+        性别: 男<input type="radio" name="sex" value="男" checked="checked" id="sex"> 女 <input type="radio" name="sex" value="女" id="sex"> <br/>
+        <!-- 复选框 -->
+        爱好: 吃饭 <input type="checkbox" name="hobby" value="1" checked="checked" id="1"> 睡觉 <input type="checkbox" name="hobby" value="2" id="2"> 打豆豆 <input type="checkbox" name="hobby" value="3" id="3"> <br>
+        <!-- 提交按钮上展示的是value值 -->
+        <input type="submit" value="免费注册">
+        <!-- 重置表单上填入参数至页面默认参数 -->
+        <input type="reset" value="重置">
+        <!-- 普通按钮button -->
+        <input type="button" value="获取短信验证码"><br/>
+        <!-- 文件上传 -->
+        <input type="file" value="文件上传"><br><br><br><br><br>
+
+
+
+        <!-- label为input标注标签,点击表单中添加label的文本时会在浏览器上出现提示光标,for属性应与input的id属性一致 -->
+        <h6>点击文本,即可选中对应输入框</h6>
+        <label for="text">用户名:</label><input type="text" id="text">
+        <input type="radio" name="sex" id="nan"><label for="nan">男</label>
+        <input type="radio" name="sex" id="nv"><label for="nv">女</label><br><br><br><br>
+
+
+        <!-- 下拉列表 selected选项标识默认选中 -->
+        性别:
+        <select name="性别选择" " id=" ">
+            <option value=" " selected="selected ">男</option>
+            <option value=" ">女</option>
+        </select></label><br><br><br><br>
+
+
+        <!-- 当要求输入较多数据时不适合使用text类型,此时可以通过textarea文本域,便于输入多行数据,常见于留言板和评论 -->
+        我的反馈:
+        <!-- cols显示每行字数,rows为行数,实际开发中一般用css控制 -->
+        <textarea name=" " id=" " cols="30 " rows="3 ">
+            是大大大实打实大师大撒grew个人和各分个人隔热个人个人个人工服务热情为区委区围绕企鹅王额外热无若翁热无
+        </textarea><br><br><br><br>
+
+
+        <h2>表单总结:</h2>
+        1.输入表单:input <br>
+        2.下拉表单:select <br>
+        3.文本域表单:textarea <br>
+
+        
+    </form>
+</body>
+
+</html>

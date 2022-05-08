@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 数组的使用 -->
+    <!-- <script>
+        // 定义空数组的方式
+        var arr = new Array();
+        var arr = [];
+        // 定义包含数据的数组
+        var arr1 = [1,2,'pink'];
+        console.log(arr1);
+        // console.log('arr1索引2下元素: ' + arr1[2]);
+        // console.log('arr1索引3下元素: ' + arr1[3]);
+        
+        // 遍历方式读取数组
+        for (var i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+    </script> -->
+
+    <!-- 新增数组元素 -->
+    <!-- <script>
+        // 1.修改索引长度方式
+        var arr = ['red','green','blue'];
+        console.log(arr.length);
+        // 将数组长度由3手动修改为了5
+        arr.length = 5;
+        // 可以看到新增的两个索引位值为undefined
+        console.log(arr);
+        
+        // 2.修改索引号方式
+        var arr1 = ['red','green','blue'];
+        // 手动给指定索引位置添加元素
+        arr1[3] = 'pink';
+        // 直接跳过第4个索引位给第5个索引赋值也是可以的,第4索引位默认undefined
+            arr1[5] = 'yellow';
+        console.log(arr1);
+    </script> -->
+
+    <!-- 数组元素倒排 -->
+    <!-- <script>
+        var arr = ['red','green','blue','pink'];
+        var newArr = [];
+        for (var i= arr.length -1; i >= 0; i--) {
+            // 根据新增数组的元素长度作为新增索引数,是一个相对于指定索引添加方式更灵活的用法
+            newArr[newArr.length] = arr[i];
+        }
+        console.log(newArr);
+    </script> -->
+
+    <!-- 冒泡排序 -->
+    <!-- <script>
+        var arr = [5,4,3,2,1];
+        // 外层循环负责遍历趟数
+        for (var i = 0; i < arr.length; i++) {
+            //  里面的循环管每一趟的交换次数
+            for (var j = 0; j < arr.length - i; j++) {
+                // 内部交换2个变量的值,前一个和后面一个数组元素相比较
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+    </script> -->
+
+
+    <!-- 抽取并调用函数 -->
+    <!-- <script>
+        // 创建函数
+        function getSum(num1,num2) {
+            var sum = 0;
+            console.log(num1+num2);
+        }
+        // 调用函数,参数匹配
+        getSum(1,1);
+        // 实参个数多于形参
+        getSum(1,2,3);
+        // 实参个数少于形参
+        getSum(1);
+
+        function getStr(str1,str2) {
+            console.log(str1+str2);
+        }
+        // 试试字符串情况下实参少于形参的结果
+        getStr('我'); //我undefined
+        getStr();   //NaN
+    </script> -->
+
+    <!-- 验证函数返回值 -->
+    <!-- <script>
+        function getResult() {
+            return 666;
+        }
+        // 一般用变量接受函数返回值比价规范
+        var result = getResult();
+        console.log(result);
+
+        // return之后的逻辑不被执行,且多个参数通过逗号隔离返回时,以最后一个为准
+        function getSum1(n1,n2) {
+            return n1,n2;
+            // return后的alert不会执行
+            alert('我是不会被执行的');
+        }
+        // 多返回值,以最后一个为准
+        console.log(getSum1(1,2));
+
+
+        // 通过数组的方式同时返回多个值
+        function getResult1(num1,num2) {
+            return [num1 + num2,num1 - num2,num1 * num2,num1 / num2];
+        }
+        // 返回的是一个运算好的数组
+        var re = getResult1(1,2);
+        console.log(re);
+
+        //  没有return时返回的是undefined 
+        function fun1() {
+
+        }
+        console.log(fun1());
+    </script> -->
+
+
+    <!-- arguments的使用 -->
+    <!-- <script>
+        function fn () {
+            console.log(arguments);//里面存储了所有传递过来的实参
+            console.log(arguments.length);
+            console.log(arguments[2]);
+            // 遍历arguments
+            for (var i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        fn(1,2,3);
+    </script> -->
+
+
+    <!-- 函数相互调用 -->
+<!-- <script>
+    function fn1 () {
+        console.log(11);
+        // fn1中调用到了fn2
+        fn2();
+    }
+    fn1();
+    function fn2 () {
+        console.log(22);
+    }
+</script> -->
+
+    <!-- 作用域链 -->
+    <!-- <script>
+        // 作用域链
+        var num = 10;
+
+        // 外部函数
+        function fn() {
+            var num = 20;
+
+            // 内部函数
+            function fun() {
+                // 调用结果为20
+                console.log(num);
+            }
+            fun();
+        }
+        fn();
+    </script> -->
+
+
+    <!-- 预解析 -->
+    <!-- <script>
+        // 1问
+        console.log(num);//undefined
+
+        // 2问
+        // 相当于执行了以下代码
+        // var num;
+        // console.log(num);
+        // num = 10;        
+        console.log(num);//undefined
+        var num = 10;
+
+        // 3问
+        fn();//11
+        function fn() {
+            console.log(11);
+        }
+        // 相当于执行以下代码(函数提升)
+        // function fn() {
+        //     console.log(11);
+        // }
+        // fn();
+
+
+        // 4问
+        fun();//报错
+        var fun = function() {
+            console.log(22);
+        }
+        // 相当于执行了以下代码
+        // var fun;
+        // fun();
+        // var fun = function() {
+        //     console.log(22);
+        // }
+    </script> -->
+
+    <!-- 预解析案例(面试题类型) -->
+    <!-- <script>
+        // 案例1    -结果:undefined  
+        var num = 10;
+        fun();
+        function fun() {
+            console.log(num);
+            var num = 20;
+        }
+        // 执行步骤(根据预解析步骤拆解):
+        var num;
+        function fun() {
+            var num;
+            console.log(num);
+            num = 20;
+        }
+        num = 10;
+        fun();
+    </script> -->
+
+    <!-- 预解析相关经典面试题 -->
+    <!-- <script>
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1(){
+            var a = b = c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        
+        // 执行步骤拆分
+        function f1(){
+            // 集体声明 var a=9;b=9;c=9;
+            // 相当于var a=9;b=9;c=9;b和c直接赋值,没有var声明,可以当全局变量看
+            var a;
+            a = b = c = 9;
+            console.log(a);//9
+            console.log(b);//9
+            console.log(c);//9
+        }
+        f1();
+        console.log(c);//9
+        console.log(b);//9
+        console.log(a);//a是一个局部变量,外部无定义,因此报错
+    </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS样式</title>
+    <!-- 使用link标签引入外部样式 -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        按CSS书写位置,CSS样式表可分为三大类:
+        1.行内样式表(行内式) -- 写在html中的style标签中(style可以写在任何位置,一般放在head中)
+        2.内部样式表(嵌入式) -- 直接写在本行标签中,影响当前标签样式
+        3.外部样式表(链接式) -- 实际开发使用方式,适用于样式较多场景,将样式单独写入css文件中,然后将css文件引入html页面使用
+    
+    
+    -->
+    <div>行内样式</div><br>
+    <div style="color:red">内部样式表</div><br>
+    <div id="outer" ">外部样式</div><br>
+
+    <h1>CSS样式引入方式总结:</h1>
+    行内样式表: 书写方便且高权重,一般用于控制一个标签,缺点是结构样式混乱,较少使用
+    内部样式表: 部分结构和样式分离,用于控制一个页面,缺点是没有彻底分离,较多使用
+    外部样式表: 完全实现了结构和样式的分离,可以控制多个页面,缺点是需要引入,使用场景最多
+</body>
+
+</html>

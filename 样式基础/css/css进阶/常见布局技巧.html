@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 200px;
+            border: 1px solid red;
+            margin-left: -1px;
+        }
+
+        /* ul li:hover {
+            1.如果盒子没有定位,则鼠标经过添加相对定位即可
+            position: relative;
+            border: 1px solid blue;
+        } */
+
+        ul li:hover {
+            /* 2.如果li都有定位,则利用z-index提高层级 */
+            z-index: 1;
+            border: 1px solid blue;
+        }
+
+    
+
+        .box1 {
+            width: 300px;
+            height: 260px;
+            background-color: pink;
+            margin: 0 auto;
+            padding: 5px;
+        }
+
+        .pic {
+            float: left;
+            width: 190px;
+            height: 170px;
+            margin-right: 5px;
+        }
+
+        .pic img {
+            width: 100%;
+        }
+
+
+        .box2 {
+            text-align: center;
+        }
+
+        .box2 a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 36px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .box2 .prev,.box2 .next {
+            width: 85px;
+        }
+
+        .box2 .current,.box2 .elp {
+            background-color: #fff;
+            border: none;
+        }
+
+        .box2 input {
+            height: 36px;
+            width: 45px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .box2 button {
+            width: 60px;
+            height: 36px;
+        }
+    </style>
+</head>
+<!-- 
+    巧妙利用一个技术更快更好的布局:
+        1.margin负值的应用
+        2.文字围绕浮动元素
+        3.行内块的巧妙运用
+        4.css三角强化
+
+ -->
+<body>
+    <!-- margin负值的巧妙运用 -->
+    <!-- <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div> -->
+
+    <!-- 文字围绕浮动元素 -->
+    <!-- <div class="box1">
+        <div class="pic">
+            <img src="images/类命名规则.png" alt="">
+        </div>
+        <p>[集锦]热身赛-巴西0-1秘鲁 内马尔替补两人血染赛场</p>
+    </div> -->
+
+    <div class="box2">
+        <a href="#" class="prev">&lt;&lt;上一页</a>
+        <a href="#" class="current">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#" class="elp">...</a>
+        <a href="#" class="next">&gt;&gt;下一页</a>
+        到第
+        <input type="text">
+        页
+        <button>确定</button>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         .box1 {
+            width: 60px;
+            height: 60px;
+            margin: 20px auto;
+            background: url(images/sprites.png) no-repeat -182px 0;
+        }
+
+        .box2 {
+            width: 27px;
+            height: 25px;
+            margin: 20px;
+            background: url(images/sprites.png) no-repeat -155px -106px;
+        } 
+        
+        span {
+            display: inline-block;
+            background: url(images/abcd.jpg) no-repeat;
+        }
+
+        .p {
+            width: 100px;
+            height: 112px;
+            background-position: -493px -276px;
+        }
+
+        .i {
+            width: 60px;
+            height: 108px;
+            background-position:  -328px -142px;
+        }
+
+        .n {
+            width: 120px;
+            height: 120px;
+            background-position:  -250px -271px;
+        }
+
+        .k {
+            width: 105px;
+            height: 111px;
+            background-position:  -495px -143px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        精灵图:
+            一个网页中往往有多个很小的背景图,网页图像过多是,服务器频繁接收和发送图片会造成服务器请求压力过大,将
+            大大降低页面的加载速度,因此为了减少服务器接受和发送请求的次数,提高页面加载速度,出现了css精灵技术(也称
+            css spriites或css雪碧)
+
+            核心原理: 将网页中小背景图像整合到一张大图中,服务器仅需一次请求就可以了;
+
+            使用:
+                1.精灵技术蛀牙针对背景图片使用,将多个小背景图整合到一张大图中
+                2.此大图被称为sprites 精灵图或雪碧图
+                3.移动背景图片位置,此时可以使用background-position
+                4.移动的距离就是这个目标图片的x和y坐标,注意网页中的坐标有所不同(网页中x轴右侧为正,左侧为负,y轴同理)
+                5.因为一般情况下都是往上往左移动,所以数值是负值
+                6.使用精灵图的时候需要精确测量,每个小背景图片的大小和位置
+     -->
+
+     <!-- 显示精灵图中头盔图 -->
+     <div class="box1"></div>
+
+     <!-- 显示小日历图标 -->
+     <div class="box2"></div>
+
+
+     <!-- 拼出pink -->
+     <div class="name">
+         <span class="p">p</span>
+         <span class="i"">i</span>
+         <span class="n">n</span>
+         <span class="k">k</span>
+     </div>
+</body>
+</html>

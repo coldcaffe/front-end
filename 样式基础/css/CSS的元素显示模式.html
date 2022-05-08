@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS的元素显示模式</title>
+
+    <style>
+        div {
+            /* width: 200px; */
+            height: 200px;
+            background-color: pink;
+        }
+        
+        input {
+            width: 80px;
+            height: 200px;
+        }
+        /* 行转块 */
+        
+        a {
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+            display: block;
+        }
+        /* 块转行 转为行元素后设置的宽高下有波浪线,提示无效参数*/
+        
+        #div1 {
+            width: 3000px;
+            height: 1000px;
+            background-color: skyblue;
+            display: inline;
+        }
+        /* 转换为行内块 */
+        
+        span {
+            width: 300px;
+            height: 30px;
+            background-color: pink;
+            display: inline-block;
+        }
+        /* 
+            模仿一个简易的小米侧边框
+                单行文字垂直居中:让文字行高等于盒子高度,就可以让文字在当前盒子内实现垂直居中
+        */
+        /* 1.把a转换Wie块级元素 */
+        
+        a {
+            display: block;
+            width: 230px;
+            /* 让文字高度等于行高,可以实现垂直居中 */
+            height: 40px;
+            line-height: 40px;
+            background-color: #55585a;
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            text-indent: 2em;
+        }
+        /* 2.鼠标经过链接转变背景颜色 */
+        
+        a:hover {
+            background-color: #ff6700;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        元素显示模式就是元素(标签)以什么方式进行显示,如div独占一行,而一行可以放多个span
+        html元素一般分为'块元素'和'行内元素'两种类型
+
+        常见块元素:
+            h1 ~ H6,p,div,ul,ol,li等,其中div是最典型的块元素
+        块元素的特点:
+            1.独占一行,是一个容器及盒子,里面可以放行内或者块级元素
+            2.高,宽及内外边距都可以控制
+            3.宽度默认是容器(父级)宽度的100%
+            4.需注意p和h1 ~ h6等都是文字类块级标签,这类标签无法放其他块级标签,尤其是div(不合规范,从最终页面代码可以看出)
+
+
+        常见行内元素:
+            a,strong,b,em,i,del,s,ins,u,span等,其中span是最典型的行内元素,有时也将行内元素成为内联元素;
+        行内元素特点:
+            1.相邻行内元素在一行上,一行可显示多个,且行内元素只能容纳文本或其他行内元素
+            2.高宽直接设置是无效的,默认宽度就是他本身内容的宽度
+            3.需注意:链接中不能再放链接,但是特殊情况下链接a里可以放块级元素(行内块元素),此时给a转换一下块级模式最安全
+
+
+        行内块元素:
+            行内元素中有几个特殊标签,同事具有块元素和行内元素的特点,有些资料将其称为行内块元素,如img,input,td
+        特点:
+            1.和相邻行内元素(行内块)在一行上,但是之间存在空白间隙,一行可以显示多个(行内元素特点)
+            2.高度,行高及内外边距可控(块级元素特点),默认宽度是其本身内容的宽度(行内元素特点)
+
+
+        元素显示模式转换:
+            特殊情况下一个模式的元素需要另外一种模式的特性,此时需要元素模式的转换,例如增加链接a的触发范围(让一个链接的文字及其周边区域都可以点击触发跳转)
+            行转块:(给a标签)添加display:block        
+            块转行:添加display:inline
+
+     -->
+    <div>div独占一行</div><br>
+
+    <!-- 这个p标签中包含div是典型的错误写法,最终结果一致,但实际上是又生成了一个p标签,两个p夹着一个div -->
+    <p>
+        <div>错误的写法,按F12看源码</div>
+    </p>
+
+    <!-- 行内块元素之间存在间隙,且行内块元素可以设置宽高 -->
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+
+    <h1>CSS的元素显示模式总结</h1>
+    1.块级元素: 一行只能放一个块级元素,可以设置宽度高度,宽度默认为容器100%,容器级可以包含任意标签(h1 ~ H6,p,div,ul,ol,li等) <br> 2.行内元素: 一行可放多个行内元素,不可以直接设置宽高,宽度默认为其本身内容的宽度,可容纳文本或其他行内元素(a,strong,b,em,i,del,s,ins,u,span等) <br> 3.行内块元素: 一行放多个行内块元素,可以设置宽高,宽度默认为其本身内容宽度(如img,input,td)
+
+    <h3>元素显示样式的转换(行转块(常用),块转行,转行内块(常用))</h3>
+    <a href="#">行转块跳转</a> <br>
+
+    <div id="div1">块转行</div>
+
+    <span>行内元素转换为行内块元素</span>
+
+
+    <h3>截图工具Snipaste</h3>
+    1.F1截图,同时测量大小,设置箭头和书写文字等 <br> 2.F3在桌面置顶显示(截图直接界面最顶层显示) <br> 3.点击图片,alt可以取色(按shift可以切换取色模式) <br> 4.按下esc取消图片显示
+
+
+    <h3>简单小米侧边框</h3>
+    <a href="#">手机 电话卡</a>
+    <a href="#">电视 盒子</a>
+    <a href="#">笔记本 平板</a>
+    <a href="#">出行 穿戴</a>
+    <a href="#">智能 路由器</a>
+    <a href="#">健康 儿童</a>
+</body>
+
+</html>

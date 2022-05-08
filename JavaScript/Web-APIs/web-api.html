@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>web-apis</title>
+    <style>
+        /* div,
+        p {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            background-color: pink;
+        }
+
+        img {
+            width: 300px;
+        }
+
+        input {
+            color: #999;
+        }
+
+        .change {
+            background-color: purple;
+            color: #fff;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            color: pink;
+        } */
+    </style>
+
+
+    <!-- window常见事件onload -->
+    <script>
+        // 传统写法,只会加载最新的
+        // window.onload = function(){
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click',function(){
+        //         alert('点击我');
+        //     })
+        // }
+        // window.onload = function(){
+        //     alert(22);
+        // }
+
+        // // 新式写法,没有限制
+        // window.addEventListener('load',function(){
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click',function(){
+        //         alert('点击我');
+        //     })
+        // })
+        // window.addEventListener('load',function(){
+        //         alert(22);
+        // })
+
+        // 因为不需要考虑图片等加载,因此加载速度要快于onload事件
+        // document.addEventListener('DOMContentLoaded',function(){
+        //     alert(33);
+        // })
+
+        // // 调整窗口大小事件
+        // window.addEventListener('load',function(){
+        //     var div = document.querySelector('div');
+        //     window.addEventListener('resize',function(){
+        //         console.log(window.innerWidth);
+        //         console.log('屏幕宽度变化了');
+        //         // 根据宽度做出展示或隐藏元素的效果
+        //         if(window.innerWidth <= 800) {
+        //             div.style.display = 'none';
+        //         }else {
+        //             div.style.display = 'block';
+        //         }
+        //     })
+        // })
+
+
+        // 定时器
+        // window.setTimeout(调用函数,延时时间);
+        // window可以省略,时间单位ms(可省略,省略默认值为0),调用函数可写函数也可写函数名调用,也可以'函数名()'-不提倡
+        // 页面中可能有很多定时器,所以经常给定时器加标识符(名字)区分
+        // setTimeout(function(){
+        //     console.log('2s时间到了');
+        // },2000);
+
+        // function callback(){
+        //     console.log('3s时间到了');
+        // }
+        // var time1 = setTimeout(callback,3000);
+
+        // var time2 = setTimeout('callback()',4000);//不提倡
+
+        
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <!-- id获取 -->
+    <!-- <div id='time'>2019-9-9</div><br> -->
+
+    <!-- 标签获取 -->
+    <!-- <ul>
+        <li>知否知否,应是等你好久</li>
+        <li>知否知否,应是等你好久</li>
+        <li>知否知否,应是等你好久</li>  
+        <li>知否知否,应是等你好久</li>
+    </ul>
+    <ul id= 'nav'>
+        <li>生僻字</li>
+        <li>生僻字</li>
+        <li>生僻字</li>
+    </ul><br> -->
+
+    <!-- <div class="box">盒子1</div>
+    <div class="box">盒子2</div><br> -->
+
+    <!-- 事件 -->
+    <!-- <button id="btn">唐伯虎</button> -->
+
+    <!-- 操作元素 改变元素内容 -->
+    <!-- <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>
+        1123
+        <span>123</span>
+    </p>
+
+    <button id="ldh">刘德华</button>    
+    <button id='zxy'>张学友</button>    
+    <img src="../images/ldh.png" alt="" title="刘德华"> -->
+
+
+    <!-- <button>按钮</button>
+    <input type="text" value="输入内容"> -->
+
+
+    <!-- 显示隐藏文本框内容 -->
+    <!-- <input type="text" value="手机"> -->
+
+    <!-- <div></div> -->
+
+    <!-- 通过className更改元素样式 -->
+    <!-- <div class="first">文本</div> -->
+
+
+    <!-- 三种创建元素方式的区别 -->
+    <!-- <button>点击</button>
+    <p>abc</p>
+    <div class="inner"></div>
+    <div class="create"></div> -->
+
+
+    <!-- window常见事件onload -->
+    <!-- <button>点击</button> -->
+
+
+    <!-- 调整窗口大小事件 -->
+    <!-- <div></div> -->
+
+    <!-- 5秒后自动关闭的广告 -->
+    <!-- <img src="../images/ad.jpg" class="ad" alt=""> -->
+        
+
+    <!-- 清除setTimeout定时器 -->
+    <!-- <button>点击停止定时器</button> -->
+
+
+    <!-- 清除setInterval定时器 -->
+    <!-- <button class="begin">开启定时器</button>
+    <button class="stop">关闭定时器</button> -->
+
+    
+    <!-- 5秒钟后跳转页面 -->
+    <!-- <button>点击</button>
+    <div></div> -->
+
+
+    <!-- location常见方法 -->
+    <button>点击</button>
+
+
+
+
+
+    <!-- 页面自上向下加载,因此先得有标签,所以script写到标签的下面 -->
+    <script>
+        // id获取
+        // var time = document.getElementById('time');
+        // console.log(time);
+        // console.log(typeof time);
+        // console.dir(time);
+        
+        // 标签获取
+        // var lis = document.getElementsByTagName('li');
+        // console.log(lis);
+        // console.log(lis[0]);
+        // // 可以先通过id获取后再根据标签进一步获取其下元素
+        // var nav = document.getElementById('nav');
+        // var navLis = nav.getElementsByTagName('li');
+        // console.log(navLis);
+
+        // 类名获取
+        // var boxs = document.getElementsByClassName('box');
+        // console.log(boxs);
+        // // querySelector返回指定选择器的第一个元素对象
+        // var firstBox = document.querySelector('.box');
+        // console.log(firstBox);
+        // // querySelectorAll()返回指定选择器的所有元素对象集合
+        // var allBox = document.querySelectorAll('.box');
+        // console.log(allBox);
+
+        // // 1.document.body获取body元素
+        //     var bodyEle = document.body;
+        //     console.log(bodyEle);
+        //     console.dir(bodyEle)
+        // // 2.document.documentElement获取html元素
+        //     var htmlEle = document.documentElement;
+        //     console.log(htmlEle);
+
+
+        // // 事件
+        // // 1.获取事件源
+        // var btn = document.getElementById('btn');
+        // // 2.绑定事件 注册事件 btn.onclick
+        // // 3.添加事件处理程序
+        // btn.onclick = function() {
+        //     alert('点秋香');
+        // }
+
+        // 点击按钮替换元素内容
+        // var btn = document.querySelector('button');
+        // var div = document.querySelector('div');
+        // btn.onclick = function() {
+        //     div.innerText = '2022-4-10';
+        // }
+        // // 元素可以不添加事件
+        // var p = document.querySelector('p');
+        // p.innerText = '2022-4-10';
+
+        // innerText和innerHTML的区别
+        // innerText不识别html标签,而innerHTML识别
+        // var div = document.querySelector('div');
+        // // 不识别
+        // // div.innerText = '<strong>今天是:</strong> 2019';
+        // // 识别并字体加粗
+        // div.innerHTML = '<strong>今天是:</strong> 2019';
+        // // 这两个属性时可读写的,可以获取元素里内容
+        // var p = document.querySelector('p');
+        // console.log(p.innerText);
+        // console.log(p.innerHTML);
+
+
+        //  修改元素属性 src
+        // var ldh = document.getElementById('ldh');
+        // var zxy = document.getElementById('zxy');
+        // var img = document.querySelector('img');
+        
+        // zxy.onclick = function() {
+        //     img.src = '../images/zxy.png';
+        //     img.title = '张学友';
+        // }
+        // ldh.onclick = function() {
+        //     img.src = '../images/ldh.png';
+        //     img.title = '刘德华';
+        // }
+
+
+        // 表单属性设置
+        // var btn = document.querySelector('button');
+        // var input = document.querySelector('input');
+        // btn.onclick = function() {
+        //     input.value = '被点击了';
+        //     // 如果想要某个表单被禁用,不能再点击disabled,我们想要这个按钮button别禁用
+        //     // btn.disabled = true;
+        //     //通过this的写法与上面的效果是一致的,因为this指向此函数function的调用者(btn)
+        //     this.disabled = true; 
+        // }
+
+
+        // 修改样式属性
+        // var div = document.querySelector('div');
+        // div.onclick = function() {
+        //     // js修改style后产生的是行内样式，优先级较高，因此会对内嵌样式的属性产生覆盖作用
+        //     this.style.backgroundColor = 'purple';
+        //     this.style.width = '100px';
+        // }
+
+
+
+        // 显示隐藏文本框内容
+        // var text = document.querySelector('input');
+        // text.onfocus = function() {
+        //     console.log('得到了焦点');
+        //     if (this.value == '手机') {
+        //         this.value = '';
+        //     }
+        //     // 获得焦点需要把文本框里面的文字颜色变黑
+        //     this.style.color = '#333';
+        // }
+        // text.onblur = function() {
+        //     console.log('失去了焦点');
+        //     if (this.value == '') {
+        //         this.value = '手机';
+        //     }
+        //     // 失去焦点需要把文本框中字体颜色变浅
+        //     this.style.color = '#999';
+        // }
+
+
+        // 通过className更改元素样式
+        // var test = document.querySelector('div');
+        // test.onclick = function() {
+        //     // this.className = 'change';
+        //     // 如果要保留原先的类名，可以采用多类名选择器
+        //     this.className = 'first change';
+        // }
+
+
+        // 三种创建元素方式区别
+        //    1.document.write(); 页面文档流加载完毕,再调用这个会导致页面重绘
+        // var btn = document.querySelector('button');
+        // btn.onclick = function() {
+        //     document.write('<div>123</div>');
+        // }
+
+        // 2.innerHTML创建元素
+        // var inner = document.querySelector('.inner');
+        // // inner.innerHTML = '<a href="#">百度</a>';
+        // var arr = [];
+        // for (var i = 0; i <= 100; i++) {
+        //     arr.push('<a href="#">百度</a>');
+        // }
+        // inner.innerHTML = arr.join('');
+
+        // 3.document.createElement
+        // var create = document.querySelector('.create');
+        // for (var i = 0; i <= 100; i++) {
+        //     var a = document.createElement('a');
+        //     a.innerHTML = '我擦';
+        //     create.appendChild(a);
+        // }
+
+
+        // // BOM顶级对象window
+        // function fn(){
+        //     console.log(11);
+        // }
+        // fn();
+        // window.fn();
+
+        // // alert(12);
+        // // window.alert(12);
+
+        // console.dir(window);
+        // var name = 10;
+        // console.log(window.name);//取不到值的
+
+
+        // 5秒后自动关闭的函数(注意这个函数的位置,没加载情况下会报错)
+        // var ad = document.querySelector('.ad');
+        // setTimeout(function() {
+        //     ad.style.display = 'none';
+        // }, 5000);
+
+
+        //  // 取消定时器
+        //  var btn = document.querySelector('button');
+        // var time1 = setTimeout(function(){
+        //     console.log('定时器启动');
+        // },3000);
+        // btn.addEventListener('click',function(){
+        //     clearTimeout(time1);
+        // })
+
+        // setUnterval定时器(可用来做倒计时或定时刷新等)
+        // setInterval(function(){
+        //     console.log('setInterval每秒调用一次');
+        // },1000);
+
+
+        // 清除setInterval定时器
+        // var begin = document.querySelector('.begin');
+        // var stop = document.querySelector('.stop');
+        // var timer = null; //全局变量 null是一个空对象
+        // begin.addEventListener('click',function(){
+        //     timer = setInterval(function(){
+        //         console.log('ni hao ma');
+        //     },1000)
+        // });
+
+        // stop.addEventListener('click',function(){
+        //     clearInterval(timer);
+        // });
+
+        
+        // 5秒钟后跳转页面
+        // var btn = document.querySelector('button');
+        // var div = document.querySelector('div');
+        // btn.addEventListener('click',function(){
+        //     location.href = 'http://www.itcast.com';
+        // });
+        // var timer = 5;
+        // setInterval(function(){
+        //     if(timer == 0){
+        //         location.href = 'http://www.itcast.com';
+        //     }else{
+        //         div.innerHTML = '您将在'+timer+'秒钟之后跳转到首页';
+        //         timer--;
+        //     }
+        // },1000);
+
+
+        // location常见方法
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            // 记录浏览历史,所以可以后退
+            // location.assign('http://www.itcast.cn');
+            // 不记录浏览历史,所以不能实现后退功能
+            // location.replace('http://www.itcast.cn');
+            // 刷新,参数为true表示强制刷新
+            location.reload(true);
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

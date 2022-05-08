@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 2. 内嵌式js -->
+    <!-- <script>
+        // alert('我是编程语言,来控制电脑网页弹出你好');
+    </script> -->
+    <!-- 3.外部js -->
+    <!-- <script src="outter.js"></script> -->
+    <!-- <script>
+        // 这是一个输入框
+        prompt('请输入您的年龄');
+        // 弹出警示框
+        alert('计算的结果是:');
+        // console控制台输出给程序员测试用
+        console.log('我是程序员能看到的');
+    </script> -->
+
+    <!-- 声明变量 -->
+    <!-- <script>
+        // 1.声明一个age变量
+        var age;
+        //  2.赋值
+        age = 18;
+        // 3.输出结果
+        console.log(age);
+        // 4.变量的初始化
+        var name = 'pink';
+        console.log(name);
+    </script> -->
+    
+    <!-- 用户输入信息并弹出警示框返回输入信息 -->
+    <!-- <script>
+        var username = prompt(username),
+            action='是',
+            target='pig',
+            sex;
+        qq = 100;
+        alert(username + " " + action + " " + target + " " + sex + " " +qq);
+    </script> -->
+
+    <!-- 通过一个缓存变量,进行两个变量值的交换案例 -->
+    <!-- <script>
+        var temp;
+        var apple1 = '青苹果';
+        var apple2 = '红苹果';
+
+        temp = apple1;
+        apple1 = apple2;
+        apple2 = temp;
+        console.log("apple1" + " = " + apple1 + 12);
+        console.log("apple2" + " = " + apple2);
+    </script> -->
+
+    <!-- js是弱语言,因此一个变量可以被定义为多个数据类型 -->
+    <!-- <script>
+        var x = 10;
+        console.log("x = "+ x);
+        // 对x赋值字符串类型
+        x = 'string';
+        console.log("x = "+ x);
+        console.log(x.length);
+        console.log(12+12);
+        console.log('12'+12);
+        console.log('x的数据类型: '+ typeof x);
+
+        console.log(parseInt('12xyz'));
+        console.log('12' - '1');
+        
+    </script> -->
+
+    <!-- 验证前置和后置递增的区别 -->
+    <script>
+        var a = 1;
+        // a先自增再去参与运算
+        console.log(++a + 1);
+        console.log(a);
+        // 将a原有值参与运算,然后再让a自增(如果a先自增,这里结果应该是4而不是3了)
+        console.log(a++ + 1);
+        console.log(a);
+
+        
+    </script>
+
+
+</head>
+<body>
+    <!-- 1.行内式的js,直接写到元素的内部 -->
+    <!-- <input type="button" name="" id="" value="唐伯虎" onclick="alert('秋香姐')"> -->
+</body>
+</html>

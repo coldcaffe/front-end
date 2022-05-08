@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .peppa {
+            /* display: none; */
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    
+        .george {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        让一个元素在页面中隐藏或者显示出来:
+            1.display:      显示隐藏(用于设置一个元素应如何显示-不保留位置)
+                none-隐藏对象,block-除转换为块级元素外,同时还有显示元素的意思
+                display隐藏元素后,不再占有原来的位置
+
+            2.visibility:   显示隐藏(用于指定一个元素应可见还是隐藏-保留位置)
+                visible-元素可视,hidden-元素隐藏
+                visibility隐藏元素后,继续占有原来的位置,如果不想要原来位置,使用none(重点,用处多)
+
+            3.overflow:     溢出显示隐藏(内容溢出框部分隐藏-只是对溢出部分进行处理)
+                visible-不剪切内容也不添加滚动条,hidden-不显示超过对象尺寸的内容,超出部分隐藏掉,
+                scroll-不管超出内容否,总是显示滚动条,auto-超出自动显示滚动条,不超出则不显示滚动条;
+
+                一般情况下我们不想让溢出的内容显示出来,因为溢出的内容会影响布局,但如果是有定位的盒子,请慎用
+                overflow:hidden,因为它会隐藏多余的部分(例如商品上添加hot标识时超出的部分,会被隐藏掉);
+     -->
+
+
+     <!-- display隐藏元素后,不再占有原来的位置,搭配js可以做很多的网页特效 -->
+     <div class="peppa">佩奇</div>
+     <div class="george">乔治</div>
+</body>
+</html>

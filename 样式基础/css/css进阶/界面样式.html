@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input,textarea {
+            /* 取消点击输入栏时的边框暗影 */
+            outline: none;
+        }
+
+        textarea {
+            /* 防止拖拽文本域 */
+            resize: none;
+        }
+
+        img {
+            /* 垂直居中 */
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+        <!-- 
+            界面样式:更改一些用户操作样式,以提高更好的用户体验
+                1.更改用户的鼠标光标形状样式 cursor
+                    li {cursor: pointer;}    
+                                default     小白,默认
+                                pointer     小手
+                                move        移动
+                                text        文本
+                                not-allowed 禁止
+
+                2.表单轮廓 online
+
+
+                3.防止表单域拖拽 resize
+
+            vertical-align属性应用 : 设置图片或者表单(行内块元素)和文字垂直对齐,只针对行内元素或者行内块元素有效
+                vertical-align: baseline 默认,元素放置在父元素的基线上
+                                top      把元素的顶端与行中最高元素的顶端对齐
+                                middle   把此元素放置在父元素的中部
+                                bottom   把元素的顶端与行中最低的元素的顶端对齐
+
+                解决图片底部默认空白缝隙问题:
+                    图片底侧会有一个空白缝隙,原因是行内块元素回合文字的基线对齐
+                    1.给图片添加vertical-align: middle|top|bottom等(提倡方案)
+                    2.把图片转换为块级元素 display:block;
+
+
+         -->
+
+         <!-- 鼠标光标 -->
+         <ul>
+             <li style = "cursor: default;">我是小白鼠标</li>
+             <li style = "cursor: pointer;">我是小手鼠标</li>
+             <li style = "cursor: move;">我是移动鼠标</li>
+             <li style = "cursor: text;">我是文本鼠标</li>
+             <li style = "cursor: not-allowed">我是禁止鼠标</li>
+         </ul> 
+
+         <!-- 取消表单轮廓 -->
+         <input type="text">
+
+
+         <!-- 防止拖拽文本域 -->
+         <textarea name="" id="" cols="30" rows="10"></textarea>
+
+         <img src="images/类命名规则.png" alt="">类命名规则
+
+        </body>
+</html>

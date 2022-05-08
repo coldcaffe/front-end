@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常见网页布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* top和footer均与浏览器等宽,因此只需要设置高度,宽度值直接默认即可 */
+        
+        .top {
+            height: 50px;
+            background-color: gray;
+        }
+        
+        .banner {
+            width: 980px;
+            height: 150px;
+            background-color: gray;
+            /* 居中 留10px间隙 */
+            margin: 10px auto;
+        }
+        
+        li {
+            /* 去除li标签 列表参数前面的黑点 */
+            list-style: none;
+        }
+        
+        .box {
+            width: 980px;
+            height: 300px;
+            background-color: pink;
+            /* 居中 */
+            margin: 0 auto;
+        }
+        /* 将列表转化为左对齐浮块后,设置右边框为10px做间隔,
+            通过对最后一个浮块的右边框设置为0,将整个浮块容纳进去
+         */
+        
+        .box li {
+            float: left;
+            width: 237px;
+            height: 300px;
+            background-color: gray;
+            margin-right: 10px;
+        }
+        
+        .box .last {
+            margin-right: 0;
+        }
+        
+        .footer {
+            height: 200px;
+            background-color: gray;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- .top+.banner+.box+.footer -->
+    <div class="top">top</div>
+    <div class="banner">banner</div>
+    <div class="box">
+        <!-- 一个div中套4个div,或者一个div中套一个列表,均可以实现这个效果 -->
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="last">4</li>
+        </ul>
+    </div>
+    <div class="footer">footer</div>
+</body>
+
+</html>

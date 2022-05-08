@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS文本</title>
+    <style>
+        /* 
+        css text(文本)属性可以定义文本外观,如文本的颜色,对齐,装饰,缩进和行间距等
+
+            color属性定义文本颜色
+            预定义颜色值: red,green,blue...
+            十六进制(开发中最常用): #FF0000,#FF6600....
+            RGB代码: rgb(255,0,0)或rgb(100%,0%,0%)...
+         */
+        
+        div {
+            /* color: red; */
+            /* color: #FF0000; */
+            color: rgb(255, 0, 0);
+            text-decoration: line-through;
+        }
+        /*
+            text-align属性定义文本位置,有left,center和right这3个属性值
+          */
+        
+        h1 {
+            text-align: center;
+        }
+        /* 
+            text-decoration属性可以给文本添加装饰:
+            none: 默认无装饰线(最常用)
+            underline:下划线(常用)
+            overline: 上划线
+            line-through: 删除线
+         */
+        /* 
+            text-indent属性用于指定文本第一行的缩进,通常用于首行缩进
+            数据值单位使用px可以指定缩进长度,该长度可以为负值
+            em为相对单位,指的是当前元素(font-size)一个文字的大小,默认按父元素一个文字的大小
+
+            line-height: 行间距 = 上间距 + 文本高度 + 下间距 ,用于控制文字行与文字行之间距离
+
+         */
+        
+        p {
+            text-indent: 2em;
+            /* text-indent: 2px;*/
+            line-height: 26px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 文本颜色的3种设置方式 -->
+    <div>我的颜色</div><br>
+
+    <!-- 文本对齐 -->
+    <h1>文本对齐</h1>
+
+    <p>首行缩进</p>
+
+</body>
+
+</html>

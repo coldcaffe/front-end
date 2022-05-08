@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS盒子模型</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 100px;
+            /* 边框粗细,一般单位用px */
+            border-width: 5px;
+            /* solid实线 dashed虚线 */
+            /* border-style: solid; */
+            border-style: dashed;
+            border-color: blue;
+            /* padding-left: 10px; */
+            /* 复合写法,1个值,表示上下左右都有10px内边距 */
+            padding: 10px;
+        }
+        
+        .div2 {
+            width: 200px;
+            height: 100px;
+            /* 没有顺序要求 */
+            border: 2px dotted green;
+            /* 2个值,代表上下为10px,左右5px */
+            padding: 10px 5px;
+        }
+        
+        .div3 {
+            width: 200px;
+            height: 100px;
+            /* 没有顺序要求 */
+            border-top: 2px solid pink;
+            border-right: 2px solid pink;
+            /* 3个值,上内边距10px,左右5px,下内边距20px */
+            padding: 10px 5px 20px;
+            /* 4个值...,按顺时针来赋值 */
+        }
+        
+        .table1 {
+            width: 400px;
+            height: 300px;
+        }
+        
+        .table1,
+        td,
+        th {
+            border: 1px solid pink;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        /* 利用padding撑大盒子的特性实现导航栏的自适应 */
+        
+        .nav {
+            height: 40px;
+            border-top: 3px solid #ff8500;
+            border-bottom: 1px solid #edeef0;
+            background-color: #fcfcfc;
+            line-height: 41px;
+        }
+        
+        .nav a {
+            display: inline-block;
+            height: 41px;
+            padding: 0 20px;
+            font-size: 12px;
+            color: #4c4c4c;
+            text-decoration: none;
+        }
+        
+        .nav a:hover {
+            background-color: #eee;
+            color: #ff8500;
+        }
+        /* 盒子的外边距 */
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        
+        .one {
+            /* margin-bottom: 20px; */
+        }
+        
+        .header {
+            width: 900px;
+            /* margin-left: auto;
+            margin-right: auto; */
+            /* margin: 0 auto; */
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<div class="nav">
+    <a href="#">新浪导航</a>
+    <a href="#">手机新闻网</a>
+    <a href="#">移动客户端</a>
+    <a href="#">微博</a>
+    <a href="#">三个字</a>
+</div><br><br><br>
+
+
+<!-- 
+        网页布局三大核心: 1.盒子模型    2.浮动  3.定位
+
+        网页布局过程:
+            1.先准备好相关网页元素,网页元素基本都是盒子box;
+            2.利用css设置好盒子样式,然后摆放到相应位置;
+            3.往盒子里装内容;
+
+        盒子模型组成:
+            border边框,content内容,padding内边距,margin外边距
+            边框: border: border-width || border-style || border-color 
+            内边距: padding: padding-left/right/top/bottom
+            外边距: margin: margin-left/right/top/bottom
+
+        边框会影响盒子的实际大小:
+            盒子实际宽高 = width/height + 边框线粗细
+            解决方案:
+                1.只测盒子内部,不测边框
+                2.如果测量时包含了边框,则需用width/height - 边框宽度
+
+        盒子添加padding值后大小发生变化:
+            如果盒子已经有了宽度和高度,此时再指定内边框,会撑大盒子
+            解决方案:
+                如果要保证盒子和效果图大小一致,则让width/height减去多出来的内边距大小即可(注意是否只需要减去单侧padding值);
+
+        padding撑大盒子的妙用:
+            门户网站中每个导航栏中字数不一样多,因此可以不用给每个盒子高度,直接给padding就合适
+            但是当盒子没有设置width/height时(设置%也算设置了),padding无法给未设定的值撑大 
+
+
+        外边距典型应用:
+            让块级盒子水平居中,但需满足两个条件:
+                1.盒子必须指定宽度width;
+                2.盒子左右的外边距都设置为auto;
+            .header{ width:10px; margin:0 auto; }
+            以上是块级元素居中,行级元素或行内块元素水平居中给其父元素添加text-align:center即可
+
+
+        可能出现的外边距合并问题:
+            1.相邻块元素垂直外边距的合并;
+                上下相邻两个块元素相遇,如果上面设置了margin-bottom,下面的设置了margin-top.则他们之间的垂直
+                距离并非二者之和,而是两个值中较大的那个;
+                解决方案: 只给一个盒子添加margin值;    
+
+            2.嵌套块元素垂直外边距的塌陷;
+                两个嵌套关系(父子关系)的块元素,父元素有上外边距同时子元素也有上外边距,此时父元素会塌陷
+                较大的外边距值;
+                解决方案:
+                    1.为父元素定义上边框;
+                    2.为父元素定义上内边距;
+                    3.为父元素添加overflow:hidden;
+                    4.其他方法,如浮动/固定/绝对定位的盒子不会有塌陷问题;
+
+        清楚盒子自带的内外边距:
+            网页元素很多自带默认内外边距,而且不同浏览器默认的也不一致,因此在布局前首先要清除下网页元素的内外边距;
+            * {
+                padding:0;
+                margin:0;
+            }
+            注意:行内元素为了照顾兼容性,尽量只设置左右内外边距,不要设置上下内外边距,但是转换为块和行内块元素就可以了;
+
+     -->
+<div class="one">1</div>
+<div>2</div><br>
+<br>
+<br>
+
+<div class="header">块级盒子水平居中</div><br>
+<br>
+<br>
+
+<div class="div1">盒子边框</div><br>
+<div class="div2">盒子边框简写</div><br>
+<div class="div3">盒子边框分开写法</div><br>
+
+
+<!-- 
+        表格的细线边框:
+            使用border-collapse属性控制浏览器绘制表格边框的方式,控制相邻单元格的边框
+            border-collapse:collapse 表示相邻边框合并在一起
+
+
+      -->
+<table class="table1" align="center">
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+    </tr>
+    <tr>
+        <td>刘德华</td>
+        <td>23</td>
+        <td>男</td>
+    </tr>
+    <tr>
+        <td>刘德华</td>
+        <td>23</td>
+        <td>男</td>
+    </tr>
+    <tr>
+        <td>刘德华</td>
+        <td>23</td>
+        <td>男</td>
+    </tr>
+</table>
+<br/>
+
+
+
+</html>

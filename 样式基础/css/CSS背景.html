@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS背景样式</title>
+
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        
+        #div2 {
+            width: 300px;
+            height: 300px;
+            background-image: url(images/王者.png);
+            background-repeat: no-repeat;
+            /* 按方位指定时,两个值先后顺序不影响,如只指定了一个方位名词,那第二个值则默认居中对齐 */
+            /* background-position: center top; */
+            /* 如果采用精确坐标,一定依x y的顺序去写,第一个一定是x,第二个是y */
+            /* background-position: 20px 50px; */
+            /* 如果只指定一个数值,那该数值一定为x坐标,另一个默认垂直居中 */
+            /* background-position: 20px; */
+            /* 参数是混合单位时,第一个值为x坐标,第二个值是y坐标 */
+            background-position: 20px center;
+            /* css3中添加的半透明效果,透明度0-1之间取值 */
+            background: rgba(0, 0, 0, 0.5)
+        }
+        
+        body {
+            /* background-image: url(images/故宫.jpg);
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-attachment: fixed;
+            background-color: black; */
+            /* 背景属性复合写法(工作中常用):一般默认按 背景色,背景图地址,背景平铺,背景图滚动,背景图位置 的顺序写 */
+            background: black url(images/故宫.jpg) no-repeat fixed center top;
+            color: #fff;
+            font-size: 20px;
+        }
+        
+        .nav {
+            display: inline-block;
+            width: 120px;
+            height: 58px;
+            background-color: pink;
+            text-align: center;
+            line-height: 58px;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .nav .bg1 {
+            background: url(images/王者.jpg) no-repeat;
+        }
+        
+        .nav a:hover {}
+    </style>
+</head>
+
+<body>
+    <!-- 
+        css背景属性,可以设置背景颜色,图片,平铺,图片位置及背景图固定等
+        
+        background-color: transparent(透明) | color
+        
+        background-image: none(默认) | url(绝对或相对地址)
+            实际开发常用于logo等装饰性的小图片,或者超大的背景图片,相对于img的优点是非常便于控制位置
+
+        background-repeat: repeat | no-repeat | repeat-x | repeat-y
+            对背景图像进行平铺,在纵向和横向平铺 | 不平铺 | 在横向平铺 | 在纵向平铺
+
+        background-position: x | y
+            背景图位置调整,x坐标和y坐标可以使用方位名词或精确单位调整
+            length 百分数|由浮点数字和单位标识符构成的长度值
+            position top | center | bottom | left | center | right 
+
+        background-attachment scroll(默认 背景图随对象内容滚动) | fixed(背景图固定)
+            设置背景图像是固定或者随页面其余部分滚动(参考qq首页的用户使用界面),后期可以制作视差滚动的效果
+
+     -->
+
+    <div id="div1">背景色样式</div>
+    <div id="div2">背景图样式</div>
+
+
+    <p>天王盖地虎</p>
+    <p>天王盖地虎</p>
+    <p>天王盖地虎</p>
+    <p>天王盖地虎</p>
+    <p>天王盖地虎</p>
+
+
+    <!-- 五彩导航案例 -->
+    <div class="nav">
+        <a href="#" class="bg1">五彩导航栏</a>
+        <a href="#">五彩导航栏</a>
+        <a href="#">五彩导航栏</a>
+        <a href="#">五彩导航栏</a>
+        <a href="#">五彩导航栏</a>
+    </div>
+
+</body>
+
+</html>

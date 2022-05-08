@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+            /* 0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(1000px);
+            } */
+            /* from {
+                transform: translateX(0px);
+            }
+            to {
+                transform: translateX(1000px);
+            } */
+            /* 可以做多个状态的变化,里面的百分比需要为整数,此百分比实际就是总时间的划分 */
+            /* 可省略 */
+            0% {
+                transform: translate(0,0);
+            }
+            25% {
+                transform: translate(1000px,0);
+            }
+            50% {
+                transform: translate(1000px,500px);
+            }
+            75% {
+                transform: translate(0,500px);
+            }
+            100% {
+                transform: translate(0,0);
+            }
+        }
+
+        .div0 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 调用动画及其执行时间 */
+            animation-name: move;
+            animation-duration: 3s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            /* 反方向 */
+            animation-direction: alternate;
+            /* 动画结束后状态默认为backwords回到起始状态,也可以设置为forwards让其停留在结束状态 */
+            animation-fill-mode: forwards;
+
+            /* 简写模式 */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+        }
+        div:hover {
+            /* 鼠标经过div.让这个div停止动画,鼠标离开后就继续动画 */
+            animation-play-state: paused;
+        }
+
+        .div1 {
+            /* 结合溢出隐藏和文字强制一行内显示,配合步进动画,可以做出文字一个个显示的效果(文字数与步进数一致即可) */
+            overflow: hidden;
+            width: 0;
+            height: 30px;
+            background-color: red;
+            /* 让文字强制一行内显示 */
+            white-space: nowrap;
+            /* 步进 */
+            animation: w 3s steps(10) forwards;
+            /* 匀速 */
+            /* animation: w 3s linear forwards; */
+            /* 默认,加速后减速结束 */
+            /* animation: w 3s ease forwards; */
+        }
+
+        @keyframes w {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 200px;
+            }
+        }
+
+        /* 奔跑的小熊 801*51 单张140 */
+        body {
+            background-color: #ccc;
+        }
+        
+        /* 小熊从左跑到中间，然后在中间一直保持跑步动作 */
+        .div2 {
+            /* 不添加绝对定位,无法实现小熊跑到浏览器中间的效果 */
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background: url(media/bear.png) no-repeat;
+            /* 元素可以添加多个动画,动画之间用逗号分隔 */
+            animation: bear 2s steps(8) forwards infinite, move 3s forwards;
+        }
+        
+        @keyframes bear {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -801px 0;
+            }
+        }
+
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div0"></div>
+    <div class="div1">进度条强制一行内显示</div>
+    <div class="div2"></div>
+</body>
+</html>

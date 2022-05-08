@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 0;
+            height: 0;
+            border-top: 10px solid pink;
+            border-right: 10px solid red;
+            border-bottom: 10px solid blue;
+            border-left: 10px solid green;
+        }
+
+        .box2 {
+            width: 0;
+            height: 0;
+            /* 边框透明,然后上边框设置颜色 */
+            border: 10px solid transparent;
+            border-top-color: pink;
+        }
+
+        .box3 {
+            width: 0;
+            height: 0;
+            /* 边框透明,然后上边框设置颜色 */
+            border: 50px solid transparent;
+            border-left-color: pink;
+            margin: 100px auto;
+        }
+
+
+        .jd {
+            position: relative;
+            width: 120px;
+            height: 249px;
+            background-color: pink;
+        }
+
+        .jd span {
+            position: absolute;
+            top: -10px;
+            right: 5px;
+            width: 0;
+            height: 0;
+            /* 照顾兼容性 */
+            line-height: 0;
+            font-size: 0;
+            border: 5px solid transparent;
+            border-bottom-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+    <!-- 仿京东样式的三角形 -->
+    <div class="jd">
+        <span></span>
+    </div>
+</body>
+</html>

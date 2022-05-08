@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            
+            /* div {
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+            }
+
+            .father {
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                margin: 100px auto;
+            } */
+
+            body{
+                height: 3000px;
+            }
+        </style>
+</head>
+<body>
+    <!-- 注册事件的2种方式 -->
+    <!-- <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>ie9 attachEvent</button> -->
+
+    <!-- 删除事件 -->
+    <!-- <div>1</div>
+    <div>2</div>
+    <div>3</div> -->
+
+    <!-- DOM事件流三个阶段 -->
+    <!-- <div class="father">
+        <div class="son">son盒子</div>
+    </div> -->
+
+    <!-- 事件对象 -->
+    <!-- <div>123</div>
+    <ul>
+        <li>abc</li>
+        <li>abc</li>
+        <li>abc</li>
+    </ul> -->
+
+    <!-- 事件对象阻止默认行为 -->
+    <!-- <div>123</div>
+    <a href="http://www.baidu.com">百度</a>
+    <form action="http://www.baidu.com">
+        <input type="submit" value="提交" name="sub">
+    </form> -->
+
+    <!-- 事件委托 -->
+    <!-- <ul>
+        <li>知否知否,点我应有弹框在手</li>
+        <li>知否知否,点我应有弹框在手</li>
+        <li>知否知否,点我应有弹框在手</li>
+    </ul> -->
+
+    <!-- 模拟京东按键输入内容 -->
+    <input type="text" name="" id="">
+
+    <script>
+        // // 1.注册事件的2种方式
+        // var btns  = document.querySelectorAll('button');
+        // // 1.传统方式注册事件,只能单一注册,且按最新注册进行覆盖
+        // btns[0].onclick = function() {
+        //     alert('hi');
+        // }
+        // btns[0].onclick = function() {
+        //     alert('hello');
+        // }
+    
+        // // 2.事件监听注册事件 addEventListener
+        // // 事件类型为字符串且无on前缀,同一元素事件可多次注册,按注册顺序执行
+        // btns[1].addEventListener('click',function () {
+        //     alert(11);
+        // }) 
+        // btns[1].addEventListener('click',function () {
+        //     alert(22);
+        // })
+    
+        // // 3.attachEvent 兼容ie9以前的版本支持
+        // // btns[2].attachEvent('onclick',function(){
+        // //     alert(123);
+        // // })
+    
+        // // 4.注册事件兼容性解决方案
+        // function addEventListener(element,eventName,fn){
+        //     // 判断当前浏览器是否支持addEventListener方法
+        //     if(element.addEventListener){
+        //         element.addEventListener(eventName,fn); //第三个参数,默认是false
+        //     }else if(element.attachEvent){
+        //         element.attachEvent('on'+eventName,fn);
+        //     }else{
+        //         // 相当于element.onclick = fn;
+        //         element['on'+eventName] = fn;
+        //     }
+        //     // 兼容性处理原则: 首先照顾大多数浏览器,再处理特殊浏览器
+        // }
+    
+    
+        // // 删除事件
+        // var divs = document.querySelectorAll('div');
+        // divs[0].onclick = function(){
+        //     alert(11);
+        //     //1.传统方式删除事件
+        //     divs[0].onclick = null;
+        // }
+        
+        // // 2.removeEventListener事件
+        // divs[1].addEventListener('click',fn) //里面的fn不需要调用小括号
+        // function fn(){
+        //     alert(22);
+        //     divs[1].removeEventListener('click',fn);
+        // }
+
+        // //3.detachEvent,兼容ie9之前
+        // divs[2].attachEvent('onclick', fn1);
+        // function fn1() {
+        //     alert(33);
+        //     divs[2].detachEvent('onclick', fn1);
+        // }
+        
+        // // 4.删除事件兼容性解决方案
+        // function removeEventListener(element,eventName,fn){
+        //     // 判断当前浏览器是否支持removenEventListener方法
+        //     if (element.removeEventListener) {
+        //         element.removeEventListener(eventName,fn);//第三个参数默认为false
+        //     }else if (element.detachEvent){
+        //         element.detachEvent('on'+eventName,fn);
+        //     }else {
+        //         element['on'+eventName] = null;
+        //     }
+        // }
+
+
+        // 5.dom事件流的三个阶段
+        // js代码只能执行捕获或者冒泡其中的一个阶段
+        // onclick和attachEvent(ie)只能得到冒泡阶段
+        // 捕获阶段,如果addEventListener的第三个参数为true,
+        //则处于捕获阶段, document->html->body ->father->son
+        // var son = document.querySelector('.son');
+        // son.addEventListener('click',function(){
+        //     alert('son');
+        // },true);
+        // var father = document.querySelector('.father');
+        // father.addEventListener('click',function(){
+        //     alert('father');
+        // },true);
+
+        // 如果第三个参数为false或者省略,则处于冒泡阶段
+        // son->father->body->html->document
+        // var son = document.querySelector('.son');
+        // son.addEventListener('click',function(){
+        //     alert('son');
+        // },false);
+        // var father = document.querySelector('.father');
+        // father.addEventListener('click',function(){
+        //     alert('father');
+        // });
+        // document.addEventListener('click',function(){
+        //     alert('document');
+        // });
+
+
+        // 事件对象
+        // var div = document.querySelector('div');
+        // div.onclick = function(event){
+        //     // console.log(event);
+        //     // console.log(window.event);
+        //     // 兼容性写法(ie678只能通过window.event获取)
+        //     event = event || window.event;
+        //     console.log(event);
+        // }
+        
+        // div.addEventListener('click',function(evt){
+        //     console.log(evt);
+        // })
+
+
+        // 常见事件对象属性和方法
+        // // 1.e.target返回的是触发事件的对象(元素),this返回的是绑定事件的对象(元素)
+        // var div = document.querySelector('div');
+        // div.addEventListener('click',function(e){
+        //     console.log(e.target);
+        //     // 有个与this相似的属性currentTarget,但是ie678不认识
+        //     console.log(this);
+        // })
+
+        // // 兼容性
+        // div.onclick = function(e){
+        //     e = e || window.event;
+        //     var target = e.target || e.srcElement;
+        //     console.log(target);
+        // }
+
+        // var ul = document.querySelector('ul');
+        // ul.addEventListener('click',function(e){
+        //     // 触发事件的元素
+        //     console.log(e.target);
+        //     // 绑定事件的元素
+        //     console.log(this);
+        // })
+        
+        // // 事件对象阻止默认行为
+        // // 1.常见事件对象的属性和方法
+        // var div = document.querySelector('div');
+        // div.addEventListener('click',fn);
+        // div.addEventListener('mouseover',fn);
+        // div.addEventListener('mouseout',fn);
+
+        // function fn(e) {
+        //     console.log(e.type);
+        // }
+
+        // // 2.阻止默认行为,让链接不跳转或者让提交按钮不提交
+        // var a = document.querySelector('a');
+        // a.addEventListener('click',function(e){
+        //     e.preventDefault(); //dom标准写法
+        // })
+
+        // // 3.传统的注册方式
+        // a.onclick = function(e){
+        //     // 普通浏览器 e.preventDefault() 方法
+        //     // e.preventDefault();
+        //     // 低版本浏览器 ie678 e.returnValue 属性
+        //     // e.returnValue;
+
+        //     // return false也可以阻止默认行为,没有兼容性问题
+        //     // 特点:return后面的代码不执行了,而且只限于传统的注册方式
+        //     return false;
+        //     alert(11);
+        // }
+
+
+        //阻止事件冒泡
+        // 标准
+        // e.stopPropagetion(); 
+        // 非标准
+        // e.cancelBubble = true; 
+
+
+        // // 事件委托
+        // // 事件委托核心原理:给父节点添加侦听器,利用事件冒泡影响没一个子节点
+        // var ul = document.querySelector('ul');
+        // ul.addEventListener('click',function(e){
+        //     alert('知否知否...');
+        //     e.target.style.backgroundColor = 'pink';
+        // })
+
+
+        // 鼠标事件对象
+        // document.addEventListener('click',function(e){
+        //     // 1.鼠标在可视区的x和y坐标
+        //     console.log(e.clientX);
+        //     console.log(e.clientY);
+        //     console.log('----------------------------');
+        //     // 2.page 鼠标在页面文档的x/y坐标(重点,但ie9+支持)
+        //     console.log(e.pageX);
+        //     console.log(e.pageY);
+        //     console.log('----------------------------');
+        //     // 2.screen 鼠标在电脑屏幕的x/y坐标
+        //     console.log(e.screenX);
+        //     console.log(e.screenY);
+        //     console.log('----------------------------');
+        // })
+
+
+        // // 常用的键盘事件
+        // // 1.keyup按键弹起时触发
+        // // document.onkeyup = function(){
+        // //     console.log('我弹起了');
+        // // }
+        // document.addEventListener('keyup',function(){
+        //     console.log('我弹起了');
+        // })
+
+        // // 2.keydown按键按下时触发   
+        // document.addEventListener('keydown',function(){
+        //     console.log('我按下了');
+        // })
+
+        // // 3.keypress按键按下时触发,但不识别功能键
+        // document.addEventListener('keypress',function(){
+        //     console.log('我按下了press');
+        // })
+        // // 4.三个事件的执行顺序 keydown->keypress->keyup
+
+
+        // // 键盘事件对象,keycode属性
+        // // onkeydown和onkeyup不区分字母大小写,onkeypress区分字母大小写.
+        // // keypress不识别功能键,但是keyCode属性能区分大小写,返回不同的ASCII值;
+        // document.addEventListener('keyup',function(e){
+        //     console.log('up:'+e.keyCode);
+        //     if (e.keyCode === 65){
+        //         alert('您按下了a键');
+        //     } else {
+        //         alert('您没有按下a键');
+        //     }
+        // })
+        // document.addEventListener('keypress',function(e){
+        //     console.log('press:'+e.keyCode);
+        // })
+
+
+        // 模拟京东按键输入内容
+        var search = document.querySelector('input');
+        document.addEventListener('keyup',function(e){
+            if(e.keyCode === 83){
+                // focus聚焦功能,可以使光标在输入框中闪动
+                search.focus();
+            }
+        })
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

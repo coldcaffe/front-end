@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <div class="demo">
+        <div class="box">
+            <span class="erweima"></span>
+        </div>
+    </div>
+
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ol> -->
+
+    <!-- 兄弟节点 -->
+    <!-- <div>我是div</div>
+    <span>我是span</span> -->
+
+    <!-- 创建节点 -->
+    <!-- <ul>
+        <li>123</li>
+    </ul> -->
+
+    <!-- 简单的发布留言案例 -->
+    <textarea name="" id="" cols="30" rows="10">123</textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+
+    <!-- 删除节点 -->
+    <!-- <button>删除</button>
+    <ul>
+        <li>熊大</li>
+        <li>熊二</li>
+        <li>光头强</li>
+    </ul> -->
+    
+
+    <!-- 复制节点 -->
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul> -->
+
+    <script>
+        // 父节点
+        // var erweima = document.querySelector('.erweima');
+        // // 得到离元素最近的父级节点(亲爸爸),如果找不到父节点就返回null
+        // console.log(erweima.parentNode);
+
+        // // 子节点
+        // var ul = document.querySelector('ul');
+        // var lis = ul.querySelectorAll('li');
+        // // 1.子节点childNodes包含所有子节点及元素 文本节点等
+        // console.log(ul.childNodes);
+        // console.log(ul.childNodes[0].nodeType);
+        // console.log(ul.childNodes[1].nodeType);
+
+        // // 2.childern获取所有的子元素节点,不包含其他,也是实际开发常用的
+        // console.log(ul.children);
+
+        // var ol = document.querySelector('ol');
+        // // 3.返回第一个子节点,不管文本还是元素节点
+        // console.log(ol.firstChild);
+
+        // // 4.返回最后一个子节点,不管文本还是元素节点
+        // console.log(ol.lastChild);
+
+        // // 5.返回第一个子元素节点
+        // console.log(ol.firstElementChild);
+
+        // // 6.返回最后一个子元素节点
+        // console.log(ol.lastElementChild);
+
+        // // 实际开发获取第一或最后一个子元素节点的方案
+        // console.log(ol.children[0]);
+        // console.log(ol.children[ol.children.length-1]);
+
+
+        // 兄弟节点
+        // var div = document.querySelector('div');
+        // console.log(div.nextSibling);
+        // console.log(div.previousSibling);
+        // console.log(div.nextElementSibling);
+        // console.log(div.previousElementSibling);
+
+        // 创建节点
+        // 1.创建节点元素节点
+        // var li = document.createElement('li');
+        // // 2.添加节点 node.appendChild(child)
+        // var ul = document.querySelector('ul');
+        // ul.appendChild(li);
+        // console.log(ul); //ul中创建并新增了一个原来没有的li子节点
+        // // 3.添加节点node.insertBefore
+        // var lili = document.createElement('li');
+        // ul.insertBefore(lili,ul.children[0]);//在123前面新增了一个节点
+        // console.log(ul);
+
+
+        // // 删除节点
+        // var ul = document.querySelector('ul');
+        // var btn = document.querySelector('button');
+        // // 点击按钮依次删除子节点
+        // btn.onclick =  function() {
+        //     if (ul.children.length == 0) {
+        //         // 没有子节点存在时使按钮禁用
+        //         this.disabled = true;
+        //     } else {
+        //         ul.removeChild(ul.children[0]);
+        //     }
+        // }
+
+
+        // 简单的发布留言案例
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+
+        btn.onclick = function(){
+            if (text.value == '') {
+                alert('您没有输入内容');
+                return false;
+            }else {
+                // 1.创建元素
+                var  li = document.createElement('li');
+                // 先有li才能赋值
+                li.innerHTML = text.value + "<a href='#'>删除</a>";
+                // 2.添加元素
+                // ul.appendChild(li);
+                ul.insertBefore(li,ul.children[0]);
+                // 3.删除元素 删除的是当前链接的li 它的父亲
+                var as = document.querySelector('a');
+                for (var i=0;i< as.length; i++) {
+                    as[i].onclick = function(){
+                        // node.removeChild(child);删除的是li,当前a所在的li this.parentNode;
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+
+
+        // 复制节点
+        // var ul = document.querySelector('ul');
+        // // 1.node.cloneNode()
+        // // 参数为空或false浅拷贝,不拷贝值
+        // // var lili = ul.children[0].cloneNode();
+        // // 参数为true深拷贝,完全拷贝
+        // var lili = ul.children[0].cloneNode(true);
+        // ul.appendChild(lili);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

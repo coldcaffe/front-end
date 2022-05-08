@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS字体属性</title>
+    <style>
+        h2 {
+            /* font-family: 宋体; */
+            font-family: 微软雅黑;
+        }
+        
+        p {
+            /* 可以同时选中多个字体,用于当浏览器不存在当前字体时,默认选择下一优先级字体 */
+            font-family: 'Courier New', Courier, monospace;
+            /* 字体大小 */
+            font-size: 15px;
+            /* 字体粗细 */
+            font-weight: 100;
+            /* 字体属性(如倾斜) */
+            font-style: italic;
+        }
+        /* 字体复合属性,可以综合来写节约代码,但是使用font属性时必须按顺序写,各属性按空格隔开
+        ,且必须保留font-size和font-family属性,否则font属性不生效
+
+            body {
+                font: font-style font-weight font-size/line-height font-family
+            }
+         */
+        
+        div {
+            font: italic 700 18px 'Microsoft yahei';
+        }
+    </style>
+</head>
+
+<body>
+    <h2>pink的秘密</h2>
+    <p>单看一年没有意义，毕竟2020年的基数太低。</p>
+    <p>不仅是最人道的策略，也是经济上的最佳选择</p>
+    <p>就一直个位数增长，跑不赢GDP增速。</p><br>
+
+    <div>三生三世 十里桃花</div>
+
+
+    <!-- 
+        Css字体属性总结:
+        1.font-size: 字号,通常单位为px,必须带上
+        2.font-family: 字体,宋体/微软雅黑...
+        3.font-weight:字体粗细,加粗是700或bold,不加粗是400或normal(常用),无单位
+        4.font-style:字体样式,倾斜是italic,不倾斜是normal(常用)
+        5.font:字体连写,连写时有顺序要求,且其中字号和字体必须同时出现
+
+     -->
+</body>
+
+</html>

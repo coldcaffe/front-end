@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圆角边框&边框和文字的阴影</title>
+    <style>
+        .div1 {
+            width: 300px;
+            height: 150px;
+            background-color: pink;
+            /* 设置元素的外边框圆角 */
+            /* border-radius: 10px; */
+            /* 宽高不一致时,生成的是椭圆形 */
+            /* border-radius: 50%; */
+            /* 设置为高度的一半,可以获得圆角矩形 */
+            border-radius: 75px;
+        }
+        
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 50%就是宽高的一半,等价于100px */
+            border-radius: 50%;
+        }
+        
+        .div3 {
+            width: 200px;
+            height: 200px;
+            /* 类似于padding属性,可以只设置1,2,3,4个值,按顺时针方式读取
+                分开写:
+                    border-top-left-radius
+                    border-top-right-raidus
+                    border-bottom-right-raidus
+                    border-bottom-left-raidus
+            
+             */
+            border-radius: 10px 20px 30px 40px;
+            color: pink;
+        }
+        /*  
+            css3中可使用盒子阴影
+            box-shadow:
+            h-shadow: 水平阴影的位置,允许负值
+            v-shadow: 垂直阴影位置,允许负值
+            blur:模糊距离
+            spread:阴影的尺寸
+            color:阴影的颜色
+            inset:将外部阴影(outset)改为内部阴影
+            
+            注意:
+                1.默认就是外阴影(outset),但是不可以写这个单词,否则会导致阴影无效
+                2.盒子阴影不占用空间,不会影响其他盒子的排列
+            
+             */
+        
+        .div4 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            /* box-shadow: 10px 10px 10px 10px black; */
+        }
+        
+        #hezi:hover {
+            /* 鼠标经过盒子时出现阴影 */
+            box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.3);
+        }
+        /* 
+            css3中可以对文本添加阴影:
+                text-shadow: 
+                h-shadow 水平阴影位置,允许负值
+                v-shadow 垂直阴影位置,允许负值
+                blur 模糊的距离
+                color 阴影颜色
+         */
+        
+        .div5 {
+            font-size: 50px;
+            color: orangered;
+            font-weight: 700;
+            text-shadow: 5px 5px 6px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">圆角边框</div><br>
+    <br>
+    <br>
+    <div class="div2">圆形</div><br>
+    <br>
+    <br>
+    <div class="div3">可以设置不同的圆角</div><br>
+    <br>
+    <br>
+    <div class="div4" id="hezi" ">盒子阴影</div><br>
+    <br>
+    <br>
+    <div class="div5 ">
+        你是阴影,我是火影
+    </div>
+
+</body>
+
+</html>

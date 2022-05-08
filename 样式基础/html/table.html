@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格练习</title>
+</head>
+
+<body>
+    <!-- table:表格标签,tr:定义行(table range),th:表头(table head 会默认居中加粗展示),td:定义单元格列(table data) -->
+    <!-- 属性(后续同样名称,由css实现) align:对齐(left,center,right); border:边框(1或""-默认); cellpadding:像素值(单元边沿与内容间空白,默认1); cellspacing:像素值(单元格间空白,默认2); width:像素值或百分比(表格宽度) -->
+    <table align="center" border="1" cellpadding="1" cellspacing="2" width="200" height="100">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td>刘德华</td>
+            <td>23</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>刘德华</td>
+            <td>23</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>刘德华</td>
+            <td>23</td>
+            <td>男</td>
+        </tr>
+    </table>
+    <br/>
+
+    <table align="center" border="1" cellpadding="1" cellspacing="2" width="200" height="100">
+        <!-- thead和tbody标签可以使表格语义更清晰,经常使用到 -->
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>刘德华</td>
+                <td>23</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>刘德华</td>
+                <td>23</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>刘德华</td>
+                <td>23</td>
+                <td>男</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+
+    <!-- rowspan:跨行合并  colspan:跨列合并 ,选中某个td单元格作为初始单元后,合并指定数量的单元格后,删除行与列上多余的格子-->
+    <table align="center" border="1" cellpadding="1" cellspacing="2" width="200" height="100">
+        <!-- thead和tbody标签可以使表格语义更清晰,经常使用到 -->
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">刘德华</td>
+                <td>23</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>刘德华</td>
+                <td colspan="2">23</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+
+</body>
+
+</html>

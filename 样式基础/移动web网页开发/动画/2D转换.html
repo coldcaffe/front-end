@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            /* x就是x轴上移动,y就是y轴上移动,中间用逗号分隔 */
+            /* transform: translate(100px,100px); */
+            /* 这里的50%就是50px,因为盒子的宽度是100px */
+            transform: translateX(50%);
+        }
+
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            /* 使盒子水平居中的两种方式 */
+            /* margin-top: -100px;
+            margin-left: -100px; */
+            transform: translate(-50%,-50%);
+        }
+
+        span {
+            /* translate对于行内元素是无效的  */
+            transform: translate(300px,300px);
+        }
+
+        .img1 {
+            width: 100px;
+            /* 顺时针旋转45度 */
+            transform: rotate(45deg);
+            border-radius: 50%;
+            border: 5px solid black;
+            /* 过渡写到本身上,谁做动画给谁加 */
+            transition: all 0.3s;
+        }
+        .img1:hover {
+            transform: rotate(360deg);
+        }
+
+
+        /* css3书写三角箭头 */
+        .div1 {
+            position: relative;
+            width: 249px;
+            height: 35px;
+            border: 1px solid #000;
+        }
+        .div1::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 15px;
+            width: 15px;
+            height: 15px;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            transform: rotate(45deg);
+            transition: all 0.7s;
+            
+        }
+        /* 鼠标经过div,里面的三角箭头旋转 */
+        .div1:hover::after {
+            transform: rotate(225deg);
+        }
+
+
+        /* 旋转中心点 */
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transition: all 1s;
+            /* 1.采用方位方式 左下角 */
+            transform-origin: left bottom;
+            /* 2.默认50% 50% 等同于center center */
+        }
+        .div2:hover {
+            transform: rotate(360deg);
+        }
+
+
+        /* 旋转中心点案例 */
+        .div3 {
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            margin: 100px auto;
+        }
+
+        .div3::before {
+            content: "旋转中心点案例";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: hotpink;
+            transform: rotate(180deg);
+            transform-origin: left bottom;
+            transition: all 0.4s;
+        }
+
+        .div3:hover::before {
+            transform: rotate(0deg);
+        }
+
+        .div4 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin: 100px auto;
+            transform-origin: center center;
+        }
+        .div4:hover {
+            /* transform: scale(2,1); */
+            /* 等比例缩放,按指定比例同时缩放宽高 */
+            transform: scale(2);
+            /* transform: scale(0.5); */
+        }
+ 
+        .div5 {
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+        }
+
+        .div5 .img2 {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            transition: all .3s;
+        } 
+
+        .div5 .img2:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* 分页按钮鼠标滑过放大效果 */
+        li {
+            float: left;
+            width: 30px;
+            height: 30px;
+            border: 1px solid pink;
+            margin: 10px;
+            text-align: center;
+            line-height: 30px;
+            list-style: none;
+            border-radius: 50%;
+            /* 添加过渡效果 */
+            transition: all .4s;
+        }
+
+        li:hover {
+            transform:scale(1.2);
+        }
+
+        /* 同时移动并旋转,综合使用(空格分隔) */
+        .div6 {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            transition: all .5s;
+        }
+
+        .div6:hover {
+            /* 同时有位移和其他属性,位移要先放前面,因为旋转会导致坐标变动 */
+            transform: translate(150px,50px) rotate(180deg);
+        }
+    </style>
+
+</head> 
+<body>
+    <div>
+        <p></p>
+    </div>
+    <span>123</span>
+
+    <img class="img1" src="media/13团伙.jpg" alt="">
+
+    <div class="div1">三角箭头</div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4">scale缩放</div>
+    <div class="div5">
+        <img class="img2" src="media/13团伙.jpg" alt="">
+    </div>
+    <!-- 分页按钮鼠标滑过放大效果 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul><br><br><br><br>
+
+    <div class="div6"></div>
+</body>
+</html>

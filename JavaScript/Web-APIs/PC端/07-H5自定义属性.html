@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div getTime = "20" data-index="2" data-list-name="andy"></div>
+    <script>
+        var div = document.querySelector('div');
+        // console.log(div.getTime);
+        console.log(div.getAttribute('getTime'));
+        div.setAttribute('data-time',21);
+        console.log(div.getAttribute('data-index'));
+        console.log(div.getAttribute('data-time'));
+        console.log(div.getAttribute('data-list-name'));
+        // h5新增获取data-开头的自定义属性,dataset中存放了所有data-开头属性值
+        console.log(div.dataset);
+        console.log(div.dataset.index);
+        console.log(div.dataset['index']);
+        // 如自定义属性里有多个'-'连接单词,获取时需采取驼峰命名法
+        console.log(div.dataset.listName);
+        console.log(div.dataset['listName']);
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

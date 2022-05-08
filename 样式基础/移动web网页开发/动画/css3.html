@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            /* 鼠标经过按钮展示按键小手样式 */
+            cursor: pointer;
+        }
+        /* 属性选择器的使用方法 */
+        button[disabled] {
+            /* button[disabled]权重: 1 + 10 = 11 */
+            /* 选择既是button,又有disabled这个属性的元素 */
+            /* 通过这种方式,只要标签中有设置对应属性即可生效,不用再另起类名设置 */
+            cursor: default;
+        }
+
+        input[type="search"] {
+            /* 根据属性值选取  */
+            color: red;
+        }
+        div[class^="icon"] {
+            color: blue;
+        }
+        div[class$="icon"] {
+            color: green;
+        }
+        div[class*="icon4"] {
+            color: yellow;
+        }
+
+        /* 结构伪类选择器 */
+        .div1 ul li:first-child {
+            /* 选择第一个 */
+            background-color: pink;
+        }
+        .div1 ul li:nth-child(3) {
+            /* 选择传入的第n个 */
+            background-color: yellow;
+        }
+        .div1 ul li:nth-child(even) {
+            /* 把所有的偶数项选中 */
+            background-color: blue;
+        }
+        .div1 ul li:nth-child(3n) {
+            /* 以3的倍数选中,包含3 */
+            background-color: purple;
+        }
+
+        /* 选择指定类型的第一个元素 */
+        .div2 span:first-of-type {
+            color: red;
+        }
+        .div2 p:nth-of-type(1) {
+            color: pink;
+        }
+        /* 根据公式选中指定类型 */
+        .div2 span:nth-of-type(2n) {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button disabled="disabled">按钮</button>
+        <button>按钮</button>
+    </div><br>
+
+    <div>
+        <input type="text" name="" id="" value="文本框">
+        <input type="text" name="" id="" value="文本框">
+        <input type="search" value="搜索框">
+        <div class="icon1">图标1</div>
+        <div class="icon2">图标2</div>
+        <div class="icon3">图标3</div>
+        <div class="iicon">图标3</div>
+        <div class="iicon4">图标4</div>
+    </div><br>
+
+    <div class="div1">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+    </div><br>
+    <div class="div2">
+        <ul>
+            <p>我是一个屁</p>
+            <span>我是span</span>
+            <span>我是span</span>
+            <span>我是span</span>
+            <span>我是span</span>
+        </ul>
+    </div>
+</body>
+</html>

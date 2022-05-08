@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        // $('div').hide();
+
+        // $(document).ready(function(){
+        //     $('div').hide();
+        // });
+
+        // 推荐这种写法
+        // $(function(){
+        //     $('div').hide();
+        // });
+
+        // jquery和dom对象的区别
+        var dom = document.querySelector('div');
+        console.dir(dom);
+        var jq = $('div');//dom对象转jquery对象
+        console.dir(jq);
+        // jq只能用jq的方法,dom只能用dom的方法,不可混用
+        // dom.hide();
+        // jq.style.display = 'none';
+        // 但是可以通过如下两种方式将DOM对象转为jquery后使用jquery的方法()
+        // $('div')[0].hide();
+        // $('div').get(0).hide();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
