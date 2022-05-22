@@ -12,6 +12,7 @@
 <body>
   <div id="app">
     <fruit-list :list='list'>
+      <!-- 父组件对子组件的加工处理 -->
       <template slot-scope='slotProps'>
         <strong v-if='slotProps.info.id==3' class="current">{{slotProps.info.name}}</strong>
         <span v-else>{{slotProps.info.name}}</span>
