@@ -43,7 +43,7 @@ Page({
   // input 输入框的事件处理函数
   inputHandler(e) {
     // console.log(e.detail.value)
-    this.setData({
+    this.setData({  //在函数中给data赋值
       msg: e.detail.value
     })
   },

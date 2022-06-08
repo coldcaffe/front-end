@@ -2,6 +2,7 @@
 
 <!-- 数据绑定 -->
 <!-- <view>{{info}}</view>
+<!-- 使用mustache语法绑定数据 -->
 <image src="{{imgSrc}}" mode="widthFix"></image>
 <view>{{randomNum1 >=5 ? '数字大于或等于5' : '数字小于5'}}</view>
 <view>{{randomNum2 * 100}}</view> -->
